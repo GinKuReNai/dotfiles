@@ -15,6 +15,7 @@ RUN add-apt-repository ppa:neovim-ppa/stable -y && \
   libxslt1-dev \
   locales \
   neovim \
+  luajit \
   nodejs \
   npm \
   patch \
