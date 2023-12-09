@@ -6,7 +6,9 @@ Mac で使用している Iterm2 とシェル環境である fish の環境を�
 
 1. Brewfile で Iterm2, fish を含むパッケージをインストール
 
-2. デフォルトの shell を fish にする
+1. config.fish を `~/.config/fish/config.fish` にコピー
+
+1. デフォルトの shell を fish にする
 
 ```sh
 sudo vi /etc/shells
@@ -18,8 +20,8 @@ sudo vi /etc/shells
 /usr/local/bin/fish
 ```
 
-3. fisher.sh を実行する
+1. fisher.sh を実行する
 
-4. Iterm2 の設定で com.googlecode.iterm2.plist をインポートする
+1. Iterm2 の設定で com.googlecode.iterm2.plist をインポートする
 
 fisher.sh でインストールした Powerline もデフォルトのフォントとして設定される。
