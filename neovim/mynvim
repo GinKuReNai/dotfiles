@@ -10,7 +10,7 @@ DOCKER_OPTIONS+=(
   "-v" "$HOME:$HOME:cached"
   "-v" "/var/www:/var/www"
   "-v" "/var/tmp:/var/tmp"
-  "-v" "$HOME/Desktop/dev/development-environments/neovim/nvim:$HOME/.config/nvim"
+  "-v" "$HOME/Desktop/dev/development-environment/neovim/nvim:/root/.config/nvim"
   "--name" $DOCKER_IMAGE
 )
 echo $DOCKER_OPTIONS
