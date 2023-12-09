@@ -17,7 +17,7 @@ brew "pinentry-mac"
 brew "tree"
 brew "wget"
 brew "neofetch"
+brew "hashicorp/tap/terraform-ls"
 cask "mactex-no-gui"
 cask "ngrok"
 cask "iterm2"
-
