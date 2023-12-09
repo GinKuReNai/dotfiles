@@ -40,9 +40,11 @@ RUN gem install -N \
 RUN locale-gen en_US.UTF-8
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:ja" LC_ALL="en_US.UTF-8"
 
+ENV XDG_CONFIG_HOME="/root/.config"
+
 # install packer
 RUN git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+  /usr/share/nvim/site/pack/packer/start/packer.nvim
 
 COPY nvim /root/.config/nvim
 
