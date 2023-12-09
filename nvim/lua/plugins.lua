@@ -37,23 +37,23 @@ return packer.startup(function(use)
 	-- https://github.com/neoclide/coc.nvim
 	use {'neoclide/coc.nvim', branch = 'release'}
 
-  -- カラースキームにGitHubを追加するプラグイン
-  -- https://github.com/projekt0n/github-nvim-theme
-  use { 'projekt0n/github-nvim-theme' }
+    -- カラースキームにGitHubを追加するプラグイン
+    -- https://github.com/projekt0n/github-nvim-theme
+    use { 'projekt0n/github-nvim-theme' }
 
 	-- アイコン
 	-- https://github.com/nvim-tree/nvim-web-devicons
 	use { 'nvim-tree/nvim-web-devicons' }
 
-  -- フッターを表示するプラグイン
-  -- https://github.com/nvim-lualine/lualine.nvim
-  use { 'nvim-lualine/lualine.nvim' }
+    -- フッターを表示するプラグイン
+    -- https://github.com/nvim-lualine/lualine.nvim
+    use { 'nvim-lualine/lualine.nvim' }
 
 	-- Fuzzy Finder
 	-- https://github.com/nvim-telescope/telescope.nvim
 	use {
-  'nvim-telescope/telescope.nvim', tag = '0.1.5',
-  requires = { {'nvim-lua/plenary.nvim'} }
+        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+        requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
 	-- Git Signs
