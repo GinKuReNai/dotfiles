@@ -1,0 +1,16 @@
+#!/bin/sh
+# このシェルスクリプトをpathの通っている場所に配置すること（例: .local/bin）
+
+DOCKER_OPTIONS=(
+  "-e" "HOME=$HOME"
+)
+DOCKER_OPTIONS+=(
+  "-v" "$HOME:$HOME:cached"
+  "-v" "/var/www:/var/www"
+  "-v" "/var/tmp:/var/tmp"
+)
+echo $DOCKER_OPTIONS
+
+DOCKER_IMAGE="mynvim"
+
+docker run --rm -it -u $(id -u):$(id -g) "${DOCKER_OPTIONS[@]}" --workdir=$(pwd) "${DOCKER_IMAGE}" "$@"
