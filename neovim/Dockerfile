@@ -40,13 +40,13 @@ RUN gem install -N \
 RUN locale-gen en_US.UTF-8
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:ja" LC_ALL="en_US.UTF-8"
 
-# install dein.vim
-RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh \
-  | sh -s /root/.cache/dein
+# install packer
+RUN git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 COPY nvim /root/.config/nvim
 
-RUN nvim +:UpdateRemotePlugins +qa
+# RUN nvim +:UpdateRemotePlugins +qa
 RUN chmod -R 777 /root
 
 ENTRYPOINT ["nvim"]
