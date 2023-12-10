@@ -78,6 +78,35 @@ return packer.startup(function(use)
 	-- https://github.com/romgrk/barbar.nvim
 	use {'romgrk/barbar.nvim'}
 
+    -- コマンド入力・通知のリッチ化
+    -- https://github.com/folke/noice.nvim
+    use {
+        "folke/noice.nvim",
+        event = "VimEnter",
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify" -- Optional, for notification view
+        },
+        config = function()
+            require("noice").setup()
+        end
+    }
+
+    -- 括弧の自動補完
+    -- https://github.com/windwp/nvim-autopairs
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+
+    -- エラー表記のリッチ化
+    -- https://github.com/folke/trouble.nvim
+    use { "folke/trouble.nvim" }
+
+    -- インデントのカラーリング
+    -- https://github.com/lukas-reineke/indent-blankline.nvim
+    use { "lukas-reineke/indent-blankline.nvim" }
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

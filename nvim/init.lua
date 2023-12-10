@@ -10,6 +10,8 @@ require("treesitter_config")
 
 require ("barbar_config")
 
+require ("indent_color_config")
+
 -- カラースキーマをGitHub仕様に設定
 vim.cmd('colorscheme github_dark_default')
 
