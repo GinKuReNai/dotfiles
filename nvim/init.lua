@@ -8,9 +8,11 @@ require("coc_config")
 
 require("treesitter_config")
 
-require ("barbar_config")
+require("barbar_config")
 
-require ("indent_color_config")
+require("indent_color_config")
+
+require("toggleterm_config")
 
 -- カラースキーマをGitHub仕様に設定
 vim.cmd('colorscheme github_dark_default')

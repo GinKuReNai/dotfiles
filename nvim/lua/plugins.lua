@@ -107,6 +107,11 @@ return packer.startup(function(use)
     -- https://github.com/lukas-reineke/indent-blankline.nvim
     use { "lukas-reineke/indent-blankline.nvim" }
 
+    -- ターミナルの仮想画面を表示するプラグイン
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end}
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
