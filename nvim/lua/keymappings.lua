@@ -26,3 +26,6 @@ vim.keymap.set('n', '<leader>fv', builtin.vim_options, {})
 vim.keymap.set('n', '<leader>fk', builtin.keymaps, {})
 -- registerの一覧
 vim.keymap.set('n', '<leader>fr', builtin.registers, {})
+
+-- Fernのキーバインド
+vim.keymap.set('n', '<leader>dt', '<CMD>Fern . -drawer -reveal=%<CR>', {})
