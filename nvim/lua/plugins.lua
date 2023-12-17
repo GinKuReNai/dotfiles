@@ -112,6 +112,10 @@ return packer.startup(function(use)
         require("toggleterm").setup()
     end}
 
+    -- GitHub Copilot
+    -- https://github.com/github/copilot.vim
+    use { "github/copilot.vim" }
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
