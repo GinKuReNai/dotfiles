@@ -16,6 +16,8 @@ require("toggleterm_config")
 
 require("fern_config")
 
+require("lualine_config")
+
 -- カラースキーマをGitHub仕様に設定
 vim.cmd('colorscheme github_dark_default')
 
