@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- 表示
 vim.opt.number = true -- 行番号を表示
 vim.opt.relativenumber = false -- 相対行番号を表示
-vim.opt.wrap = true -- テキストの自動折り返しを無効に
+vim.opt.wrap = false -- テキストの自動折り返しを無効に
 vim.opt.showtabline = 2 -- タブラインを表示
                         -- （1:常に表示、2:タブが開かれたときに表示）
 vim.opt.visualbell = true -- ビープ音を表示する代わりに画面をフラッシュ
@@ -65,8 +65,11 @@ vim.opt.pumblend = 0 -- ポップアップメニューの不透明度
 vim.opt.showtabline = 2 -- タブラインを表示する設定
 vim.opt.signcolumn = "yes" -- サインカラムを表示
 
----- 行番号の色を変更（色は適宜変更してください）
+---- 行番号の色を変更
 vim.cmd("highlight LineNr guifg=#8a70ac")
 
 -- カーソルの形状
 vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+
+-- <Esc>を2回押すと検索ハイライトを消す
+vim.api.nvim_set_keymap("n", "<Esc><Esc>", ":nohlsearch<CR>", { noremap = true })

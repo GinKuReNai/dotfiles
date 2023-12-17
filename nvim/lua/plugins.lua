@@ -135,7 +135,10 @@ return packer.startup(function(use)
 
     -- エラー表記のリッチ化
     -- https://github.com/folke/trouble.nvim
-    use { "folke/trouble.nvim" }
+    use {
+        "folke/trouble.nvim",
+        opts = {}
+    }
 
     -- インデントのカラーリング
     -- https://github.com/lukas-reineke/indent-blankline.nvim

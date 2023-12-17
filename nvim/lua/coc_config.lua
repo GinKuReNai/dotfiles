@@ -41,9 +41,13 @@ keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", {silent = true})
 keyset("n", "]g", "<Plug>(coc-diagnostic-next)", {silent = true})
 
 -- GoTo code navigation
+-- カーソル下の定義先にジャンプ
 keyset("n", "gd", "<Plug>(coc-definition)", {silent = true})
+-- カーソル下の型定義先にジャンプ
 keyset("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
+-- カーソル下の実装先(親クラスやインターフェース)にジャンプ
 keyset("n", "gi", "<Plug>(coc-implementation)", {silent = true})
+-- カーソル下の参照先にジャンプ
 keyset("n", "gr", "<Plug>(coc-references)", {silent = true})
 
 
