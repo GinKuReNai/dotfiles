@@ -30,3 +30,14 @@ vim.keymap.set('n', '<leader>fr', builtin.registers, {})
 -- 通知の一覧
 vim.api.nvim_set_keymap('n', '<leader>fn', ':Telescope notify<CR>', {noremap = true, silent = true})
 
+-- 画面分割
+-- 水平分割
+vim.keymap.set('n', 'ss', ':split<Return><C-w>w', {})
+-- 垂直分割
+vim.keymap.set('n', 'sv', ':vsplit<Return><C-w>w', {})
+
+-- アクティブウィンドウの移動
+vim.keymap.set('n', '<A-h>', '<C-w>h', {})
+vim.keymap.set('n', '<A-j>', '<C-w>j', {})
+vim.keymap.set('n', '<A-k>', '<C-w>k', {})
+vim.keymap.set('n', '<A-l>', '<C-w>l', {})

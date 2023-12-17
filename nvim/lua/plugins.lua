@@ -142,13 +142,36 @@ return packer.startup(function(use)
     use { "lukas-reineke/indent-blankline.nvim" }
 
     -- ターミナルの仮想画面を表示するプラグイン
+    -- https://github.com/akinsho/toggleterm.nvim
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup()
+        require("toggleterm").setup{
+            -- Ctrl + \ でターミナルを開く
+            open_mapping = [[<c-\>]],
+            direction = 'float',
+            float_opts = {
+                border = 'curved'
+            }
+        }
     end}
 
     -- GitHub Copilot
     -- https://github.com/github/copilot.vim
     use { "github/copilot.vim" }
+
+    -- キーバインドのヘルプを表示するプラグイン
+    -- https://github.com/folke/which-key.nvim
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
