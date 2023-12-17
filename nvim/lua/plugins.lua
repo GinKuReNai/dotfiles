@@ -176,6 +176,10 @@ return packer.startup(function(use)
         end
     }
 
+    -- 同一単語のハイライト
+    -- https://github.com/RRethy/vim-illuminate
+    use { 'RRethy/vim-illuminate' }
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

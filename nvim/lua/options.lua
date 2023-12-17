@@ -73,3 +73,8 @@ vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 
 -- <Esc>を2回押すと検索ハイライトを消す
 vim.api.nvim_set_keymap("n", "<Esc><Esc>", ":nohlsearch<CR>", { noremap = true })
+
+-- エラー行に赤色のアンダーラインを設定
+vim.cmd [[
+    highlight DiagnosticUnderlineError guifg=#ff0000 gui=underline ctermfg=1 cterm=underline
+]]
