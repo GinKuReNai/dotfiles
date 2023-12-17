@@ -58,7 +58,22 @@ return packer.startup(function(use)
 
 	-- Git Signs
 	-- https://github.com/lewis6991/gitsigns.nvim
-	use {'lewis6991/gitsigns.nvim'}
+	use {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup{
+                -- Git Blameを毎回表示する
+                current_line_blame = true,
+                current_line_blame_opts = {
+                    virt_text = true,
+                    virt_text_pos = 'eol', -- 行末に表示
+                    delay = 500, -- 0.5秒後に表示
+                    ignore_whitespace = true, -- 空白による変更履歴の計測を無視
+                },
+                current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+            }
+        end
+    }
 
 	-- シンタックスハイライト
 	-- https://github.com/nvim-treesitter/nvim-treesitter
