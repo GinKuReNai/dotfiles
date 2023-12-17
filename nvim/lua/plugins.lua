@@ -74,6 +74,25 @@ return packer.startup(function(use)
 	-- https://github.com/lambdalisue/fern.vim
 	use {'lambdalisue/fern.vim'}
 
+    -- Fernのアイコン
+    -- https://github.com/lambdalisue/fern-renderer-nerdfont.vim
+    use {
+        'lambdalisue/fern-renderer-nerdfont.vim',
+        requires = {
+            'lambdalisue/fern.vim',
+            'lambdalisue/nerdfont.vim'
+        }
+    }
+
+    -- FernでのGit Statusの表示
+    -- https://github.com/lambdalisue/fern-git-status.vim
+    use {
+        'lambdalisue/fern-git-status.vim',
+        requires = {
+            'lambdalisue/fern.vim'
+        }
+    }
+
 	-- タブのサポート
 	-- https://github.com/romgrk/barbar.nvim
 	use {'romgrk/barbar.nvim'}

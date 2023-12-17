@@ -30,5 +30,3 @@ vim.keymap.set('n', '<leader>fr', builtin.registers, {})
 -- 通知の一覧
 vim.api.nvim_set_keymap('n', '<leader>fn', ':Telescope notify<CR>', {noremap = true, silent = true})
 
--- Fernのキーバインド
-vim.keymap.set('n', '<leader>dt', '<CMD>Fern . -drawer -reveal=%<CR>', {})
