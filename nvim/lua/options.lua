@@ -38,6 +38,18 @@ vim.opt.expandtab = true -- タブ文字をスペースに置き換える
 vim.opt.autoindent = true -- 自動インデントを有効にする
 vim.opt.smartindent = true -- インデントをスマートに調整する
 
+-- インデント幅を言語毎に調整
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"terraform", "yaml"},
+    -- ウィンドウやバッファに対してのみローカルにのみ影響を与える
+    callback = function()
+        vim.opt_local.shiftwidth = 2 -- シフト幅を2に設定する
+        vim.opt_local.tabstop = 2 -- タブ文字の幅を2スペースに設定する
+        vim.opt_local.shiftwidth = 2 -- 自動インデントの幅を2スペースに設定する
+        vim.opt_local.softtabstop = 2 -- タブキー押下時に2スペース分の移動を行う
+    end
+})
+
 -- 表示
 vim.opt.number = true -- 行番号を表示
 vim.opt.relativenumber = false -- 相対行番号を表示
