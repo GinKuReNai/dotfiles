@@ -180,6 +180,15 @@ return packer.startup(function(use)
     -- https://github.com/RRethy/vim-illuminate
     use { 'RRethy/vim-illuminate' }
 
+    -- スタート画面
+    -- https://github.com/goolord/alpha-nvim
+    use {
+        'goolord/alpha-nvim',
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        end
+    }
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
