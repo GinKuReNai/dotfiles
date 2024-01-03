@@ -226,6 +226,10 @@ return packer.startup(function(use)
     -- https://github.com/norcalli/nvim-colorizer.lua
     use { 'norcalli/nvim-colorizer.lua' }
 
+    -- Gitクライアント
+    -- https://github.com/tpope/vim-fugitive
+    use { 'tpope/vim-fugitive' }
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
