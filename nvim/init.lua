@@ -18,8 +18,10 @@ require("fern_config")
 
 require("lualine_config")
 
+require("alpha_config")
+
 -- カラースキーマをGitHub仕様に設定
-vim.cmd('colorscheme github_dark_default')
+vim.cmd('colorscheme tokyonight-night')
 
 -- フッターを起動
 local lualine_theme = require'lualine.themes.material'

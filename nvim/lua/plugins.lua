@@ -41,6 +41,10 @@ return packer.startup(function(use)
     -- https://github.com/projekt0n/github-nvim-theme
     use { 'projekt0n/github-nvim-theme' }
 
+    -- カラースキーム（Tokyo Night）
+    -- https://github.com/folke/tokyonight.nvim
+    use { 'folke/tokyonight.nvim' }
+
 	-- アイコン
 	-- https://github.com/nvim-tree/nvim-web-devicons
 	use { 'nvim-tree/nvim-web-devicons' }
@@ -146,7 +150,8 @@ return packer.startup(function(use)
 
     -- ターミナルの仮想画面を表示するプラグイン
     -- https://github.com/akinsho/toggleterm.nvim
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    use {
+        "akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup{
             -- Ctrl + \ でターミナルを開く
             open_mapping = [[<c-\>]],
@@ -155,11 +160,30 @@ return packer.startup(function(use)
                 border = 'curved'
             }
         }
-    end}
+        end
+    }
 
     -- GitHub Copilot
     -- https://github.com/github/copilot.vim
-    use { "github/copilot.vim" }
+    use {
+        "github/copilot.vim",
+        config = function()
+            vim.g.copilot_no_tab_map = true
+
+            local keymap = vim.keymap.set
+            -- https://github.com/orgs/community/discussions/29817#discussioncomment-4217615
+            keymap(
+                "i",
+                "<C-g>",
+                'copilot#Accept("<CR>")',
+                { silent = true, expr = true, script = true, replace_keycodes = false }
+            )
+            keymap("i", "<C-j>", "<Plug>(copilot-next)")
+            keymap("i", "<C-k>", "<Plug>(copilot-previous)")
+            keymap("i", "<C-o>", "<Plug>(copilot-dismiss)")
+            keymap("i", "<C-s>", "<Plug>(copilot-suggest)")
+        end,
+    }
 
     -- キーバインドのヘルプを表示するプラグイン
     -- https://github.com/folke/which-key.nvim
@@ -180,6 +204,15 @@ return packer.startup(function(use)
     -- https://github.com/RRethy/vim-illuminate
     use { 'RRethy/vim-illuminate' }
 
+    -- スクロールを滑らかに
+    -- https://github.com/karb94/neoscroll.nvim
+    use {
+        "karb94/neoscroll.nvim",
+        config = function ()
+            require('neoscroll').setup {}
+        end
+    }
+
     -- スタート画面
     -- https://github.com/goolord/alpha-nvim
     use {
@@ -188,6 +221,10 @@ return packer.startup(function(use)
             require'alpha'.setup(require'alpha.themes.dashboard'.config)
         end
     }
+
+    -- 色のプレビュー
+    -- https://github.com/norcalli/nvim-colorizer.lua
+    use { 'norcalli/nvim-colorizer.lua' }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
