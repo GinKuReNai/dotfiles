@@ -78,3 +78,7 @@ vim.api.nvim_set_keymap("n", "<Esc><Esc>", ":nohlsearch<CR>", { noremap = true }
 vim.cmd [[
     highlight DiagnosticUnderlineError guifg=#ff0000 gui=underline ctermfg=1 cterm=underline
 ]]
+
+-- ノーマルモードでマウスを有効にする
+vim.opt.mouse = "a"
+
