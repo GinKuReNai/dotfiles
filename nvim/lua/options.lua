@@ -67,9 +67,10 @@ vim.opt.signcolumn = "yes" -- サインカラムを表示
 
 ---- 行番号の色を変更
 vim.cmd("highlight LineNr guifg=#8a70ac")
+vim.opt.cursorline = true
 
 -- カーソルの形状
-vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 
 -- <Esc>を2回押すと検索ハイライトを消す
 vim.api.nvim_set_keymap("n", "<Esc><Esc>", ":nohlsearch<CR>", { noremap = true })
@@ -81,4 +82,8 @@ vim.cmd [[
 
 -- ノーマルモードでマウスを有効にする
 vim.opt.mouse = "a"
+
+-- 改行文字を表示
+-- showbreaksの設定
+vim.opt.showbreak = "↪"
 

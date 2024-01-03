@@ -18,6 +18,6 @@ vim.cmd [[
 
 -- Fernのキーバインド
 -- ソースコードツリーを開く(show tree)
-vim.keymap.set('n', '<leader>st', '<CMD>Fern . -drawer -reveal=%<CR>', {})
+vim.keymap.set('n', '<leader>st', '<CMD>Fern . -reveal=%<CR>', {})
 -- ソースコードツリーを閉じる(hide tree)
-vim.keymap.set('n', '<leader>ht', '<CMD>Fern . -drawer -toggle<CR>', {})
+vim.keymap.set('n', '<leader>ht', '<CMD>Fern . -toggle<CR>', {})
