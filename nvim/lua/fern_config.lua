@@ -16,6 +16,11 @@ vim.cmd [[
     let g:fern#renderer#nerdfont#color#staged = 'green'
 ]]
 
+-- デフォルトで隠しファイルを表示
+vim.cmd [[
+    let g:fern#default_hidden = 1
+]]
+
 -- Fernのキーバインド
 -- ソースコードツリーを開く(show tree)
 vim.keymap.set('n', '<leader>st', '<CMD>Fern . -reveal=%<CR>', {})
