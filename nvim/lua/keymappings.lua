@@ -62,3 +62,5 @@ vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', {noremap = true, silent = true})
 
+-- 自動フォーマット
+vim.api.nvim_set_keymap('n', '<leader>fm', '<cmd>call CocAction("format")<CR>', {noremap = true, silent = true})

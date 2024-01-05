@@ -130,13 +130,6 @@ return packer.startup(function(use)
         end
     }
 
-    -- 括弧の自動補完
-    -- https://github.com/windwp/nvim-autopairs
-    use {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    }
-
     -- エラー表記のリッチ化
     -- https://github.com/folke/trouble.nvim
     use {
@@ -229,6 +222,10 @@ return packer.startup(function(use)
     -- Gitクライアント
     -- https://github.com/tpope/vim-fugitive
     use { 'tpope/vim-fugitive' }
+
+    -- コメントアウト
+    -- https://github.com/tpope/vim-commentary
+    use { 'tpope/vim-commentary' }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

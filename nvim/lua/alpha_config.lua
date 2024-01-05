@@ -19,6 +19,8 @@ dashboard.section.buttons.val = {
     dashboard.button( "f", "  > Find file", ":Telescope find_files<CR>"),
     dashboard.button( "g", "  > Find by keywords", ":Telescope live_grep<CR>"),
     dashboard.button( "r", "  > Recent"   , ":Telescope oldfiles<CR>"),
+    dashboard.button( "gs", "  > Git status"   , ":Telescope git_status<CR>"),
+    dashboard.button( "t", "  > Open Tree"   , ":Fern . -reveal=%<CR>'"),
     dashboard.button( "s", "  > Settings" , ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
     dashboard.button( "q", "  > Quit NVIM", ":qa<CR>"),
 }

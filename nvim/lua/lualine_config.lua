@@ -42,7 +42,8 @@ require('lualine').setup {
             always_visible = false,
         }
     },
-    lualine_c = {'filename'},
+    -- ファイル名は相対パスで表示
+    lualine_c = {{'filename', path = 1}},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
