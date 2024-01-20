@@ -6,6 +6,8 @@ require("keymappings")
 
 require("coc_config")
 
+require("telescope_config")
+
 require("treesitter_config")
 
 require("barbar_config")
