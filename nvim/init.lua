@@ -10,7 +10,7 @@ require("telescope_config")
 
 require("treesitter_config")
 
-require("barbar_config")
+require("bufferline_config")
 
 require("indent_color_config")
 

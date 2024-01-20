@@ -131,9 +131,14 @@ return packer.startup(function(use)
         }
     }
 
-	-- タブのサポート
-	-- https://github.com/romgrk/barbar.nvim
-	use {'romgrk/barbar.nvim'}
+    -- バッファのタブ化
+    -- https://github.com/akinsho/bufferline.nvim
+    use {
+        'akinsho/bufferline.nvim',
+        requires = {
+            'nvim-tree/nvim-web-devicons'
+        }
+    }
 
     -- コマンド入力・通知のリッチ化
     -- https://github.com/folke/noice.nvim
