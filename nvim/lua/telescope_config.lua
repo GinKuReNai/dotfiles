@@ -53,3 +53,9 @@ vim.keymap.set('n', '<leader>fv', builtin.vim_options, {})
 vim.keymap.set('n', '<leader>fk', builtin.keymaps, {})
 -- registerの一覧
 vim.keymap.set('n', '<leader>fr', builtin.registers, {})
+
+-- ファイルブラウザ
+vim.api.nvim_set_keymap('n', '<leader>fbb', ':Telescope file_browser path=$:p:h select_buffer=true<CR>', {noremap = true})
+
+-- よく使用するファイルの検索
+vim.keymap.set('n', '<leader>ffr', '<Cmd>Telescope frecency<CR>', {})

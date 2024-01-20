@@ -60,6 +60,25 @@ return packer.startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
+    -- ファイルブラウザ(Telescope extension)
+    -- https://github.com/nvim-telescope/telescope-file-browser.nvim
+    use {
+        'nvim-telescope/telescope-file-browser.nvim',
+        requires = {
+            'nvim-telescope/telescope.nvim',
+            'nvim-lua/plenary.nvim'
+        }
+    }
+
+    -- よく使用するファイルの検索(Telescope extension)
+    -- https://github.com/nvim-telescope/telescope-frecency.nvim
+    use {
+        'nvim-telescope/telescope-frecency.nvim',
+        config = function()
+            require('telescope').load_extension('frecency')
+        end
+    }
+
 	-- Git Signs
 	-- https://github.com/lewis6991/gitsigns.nvim
 	use {
