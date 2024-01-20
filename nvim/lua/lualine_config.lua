@@ -49,8 +49,7 @@ require('lualine').setup {
     lualine_z = {'location'}
   },
   inactive_sections = {
-    lualine_a = {},
-    lualine_b = {'branch', 'diff', {
+    lualine_a = {'branch', 'diff', {
             'diagnostics',
             -- 対象のプラグイン
             sources = { 'coc' },
@@ -73,6 +72,7 @@ require('lualine').setup {
             always_visible = false,
         },
     },
+    lualine_b = {},
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
