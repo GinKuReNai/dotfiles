@@ -227,6 +227,18 @@ return packer.startup(function(use)
     -- https://github.com/tpope/vim-commentary
     use { 'tpope/vim-commentary' }
 
+    -- セッションの保存
+    -- https://github.com/rmagatti/auto-session
+    use {
+        'rmagatti/auto-session',
+        config = function()
+            require('auto-session').setup {
+                log_level = 'error',
+                auto_session_suppress_dirs = { '~/', '~/Projects', '~/Downloads', '/' }
+            }
+        end
+    }
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
