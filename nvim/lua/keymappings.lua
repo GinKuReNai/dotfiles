@@ -1,26 +1,23 @@
 -- スペースを<Leader>として設定
 vim.g.mapleader = " "
 
--- 通知の一覧
-vim.api.nvim_set_keymap('n', '<leader>fn', ':Telescope notify<CR>', {noremap = true, silent = true})
-
 -- 画面分割
 -- 水平分割
-vim.keymap.set('n', 'ss', ':split<Return><C-w>w', {})
+vim.keymap.set('n', 'ss', ':split<Return><C-w>w', { desc = '水平分割' })
 -- 垂直分割
-vim.keymap.set('n', 'sv', ':vsplit<Return><C-w>w', {})
+vim.keymap.set('n', 'sv', ':vsplit<Return><C-w>w', { desc = '垂直分割' })
 
 -- アクティブウィンドウの移動
-vim.keymap.set('n', '<A-h>', '<C-w>h', {})
-vim.keymap.set('n', '<A-j>', '<C-w>j', {})
-vim.keymap.set('n', '<A-k>', '<C-w>k', {})
-vim.keymap.set('n', '<A-l>', '<C-w>l', {})
+vim.keymap.set('n', '<A-h>', '<C-w>h', { desc = '左のウィンドウに移動' })
+vim.keymap.set('n', '<A-j>', '<C-w>j', { desc = '下のウィンドウに移動' })
+vim.keymap.set('n', '<A-k>', '<C-w>k', { desc = '上のウィンドウに移動' })
+vim.keymap.set('n', '<A-l>', '<C-w>l', { desc = '右のウィンドウに移動' })
 
 -- 'jj' でエスケープ（インサートモードからノーマルモードへ）
-vim.api.nvim_set_keymap('i', 'jj', '<ESC>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', 'jj', '<ESC>', {noremap = true, silent = true, desc = 'インサートモードからノーマルモードへ'})
 
 -- 'っj' でエスケープ（日本語入力中にも対応）
-vim.api.nvim_set_keymap('i', 'っj', '<ESC>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', 'っj', '<ESC>', {noremap = true, silent = true, desc = '日本語入力でインサートモードからノーマルモードへ'})
 
 -- 日本語入力がオンのままでも使えるコマンド
 vim.api.nvim_set_keymap('n', 'あ', 'a', {noremap = true, silent = true})
@@ -37,4 +34,4 @@ vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', {noremap = true, silent = true})
 
 -- 自動フォーマット
-vim.api.nvim_set_keymap('n', '<leader>fm', '<cmd>call CocAction("format")<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>fm', '<cmd>call CocAction("format")<CR>', {noremap = true, silent = true, desc = '自動フォーマット'})

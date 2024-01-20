@@ -23,6 +23,6 @@ vim.cmd [[
 
 -- Fernのキーバインド
 -- ソースコードツリーを開く(show tree)
-vim.keymap.set('n', '<leader>st', '<CMD>Fern . -reveal=%<CR>', {})
+vim.keymap.set('n', '<leader>st', '<CMD>Fern . -reveal=%<CR>', { desc = 'Fern: ソースコードツリーを開く' })
 -- ソースコードツリーを閉じる(hide tree)
-vim.keymap.set('n', '<leader>ht', '<CMD>Fern . -toggle<CR>', {})
+vim.keymap.set('n', '<leader>ht', '<CMD>Fern . -toggle<CR>', { desc = 'Fern: ソースコードツリーを閉じる' })

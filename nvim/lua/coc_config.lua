@@ -37,18 +37,18 @@ keyset("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
 
 -- Use `[g` and `]g` to navigate diagnostics
 -- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
-keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", {silent = true})
-keyset("n", "]g", "<Plug>(coc-diagnostic-next)", {silent = true})
+keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", {silent = true, desc = 'Coc: 前の診断に移動'})
+keyset("n", "]g", "<Plug>(coc-diagnostic-next)", {silent = true, desc = 'Coc: 次の診断に移動'})
 
 -- GoTo code navigation
 -- カーソル下の定義先にジャンプ
-keyset("n", "gd", "<Plug>(coc-definition)", {silent = true})
+keyset("n", "gd", "<Plug>(coc-definition)", {silent = true, desc = 'Coc: 定義先に移動'})
 -- カーソル下の型定義先にジャンプ
-keyset("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
+keyset("n", "gy", "<Plug>(coc-type-definition)", {silent = true, desc = 'Coc: 型定義先に移動'})
 -- カーソル下の実装先(親クラスやインターフェース)にジャンプ
-keyset("n", "gi", "<Plug>(coc-implementation)", {silent = true})
+keyset("n", "gi", "<Plug>(coc-implementation)", {silent = true, desc = 'Coc: 実装先に移動'})
 -- カーソル下の参照先にジャンプ
-keyset("n", "gr", "<Plug>(coc-references)", {silent = true})
+keyset("n", "gr", "<Plug>(coc-references)", {silent = true, desc = 'Coc: 参照先に移動'})
 
 
 -- Use K to show documentation in preview window
@@ -75,12 +75,12 @@ vim.api.nvim_create_autocmd("CursorHold", {
 
 
 -- Symbol renaming
-keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
+keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true, desc = 'Coc: シンボルのリネーム'})
 
 
 -- Formatting selected code
-keyset("x", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
-keyset("n", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
+keyset("x", "<leader>f", "<Plug>(coc-format-selected)", {silent = true, desc = 'Coc: 選択範囲のフォーマット'})
+keyset("n", "<leader>f", "<Plug>(coc-format-selected)", {silent = true, desc = 'Coc: 選択範囲のフォーマット'})
 
 
 -- Setup formatexpr specified filetype(s)
@@ -101,36 +101,35 @@ vim.api.nvim_create_autocmd("User", {
 
 -- Apply codeAction to the selected region
 -- Example: `<leader>aap` for current paragraph
-local opts = {silent = true, nowait = true}
-keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
-keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
+keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", { silent = true, nowait = true, desc = 'Coc: 選択範囲のコードアクション' })
+keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", { silent = true, nowait = true, desc = 'Coc: 選択範囲のコードアクション' })
 
 -- Remap keys for apply code actions at the cursor position.
-keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
+keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", { silent = true, nowait = true, desc = 'Coc: カーソル位置のコードアクション' })
 -- Remap keys for apply source code actions for current file.
-keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", opts)
+keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", { silent = true, nowait = true, desc = 'Coc: ファイル全体のコードアクション' })
 -- Apply the most preferred quickfix action on the current line.
-keyset("n", "<leader>qf", "<Plug>(coc-fix-current)", opts)
+keyset("n", "<leader>qf", "<Plug>(coc-fix-current)", { silent = true, nowait = true, desc = 'Coc: クイックフィックスの適用' })
 
 -- Remap keys for apply refactor code actions.
-keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
-keyset("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
-keyset("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true, desc = 'Coc: リファクタリング' })
+keyset("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true, desc = 'Coc: 選択範囲のリファクタリング' })
+keyset("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true, desc = 'Coc: 選択範囲のリファクタリング' })
 
 -- Run the Code Lens actions on the current line
-keyset("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
+keyset("n", "<leader>cl", "<Plug>(coc-codelens-action)", { silent = true, desc = 'Coc: CodeLensの実行' })
 
 
 -- Map function and class text objects
 -- NOTE: Requires 'textDocument.documentSymbol' support from the language server
-keyset("x", "if", "<Plug>(coc-funcobj-i)", opts)
-keyset("o", "if", "<Plug>(coc-funcobj-i)", opts)
-keyset("x", "af", "<Plug>(coc-funcobj-a)", opts)
-keyset("o", "af", "<Plug>(coc-funcobj-a)", opts)
-keyset("x", "ic", "<Plug>(coc-classobj-i)", opts)
-keyset("o", "ic", "<Plug>(coc-classobj-i)", opts)
-keyset("x", "ac", "<Plug>(coc-classobj-a)", opts)
-keyset("o", "ac", "<Plug>(coc-classobj-a)", opts)
+keyset("x", "if", "<Plug>(coc-funcobj-i)", {silent = true, nowait = true, desc = 'Coc: 関数の内側を選択'})
+keyset("o", "if", "<Plug>(coc-funcobj-i)", {silent = true, nowait = true, desc = 'Coc: 関数の内側を選択'})
+keyset("x", "af", "<Plug>(coc-funcobj-a)", {silent = true, nowait = true, desc = 'Coc: 関数の外側を選択'})
+keyset("o", "af", "<Plug>(coc-funcobj-a)", {silent = true, nowait = true, desc = 'Coc: 関数の外側を選択'})
+keyset("x", "ic", "<Plug>(coc-classobj-i)", {silent = true, nowait = true, desc = 'Coc: クラスの内側を選択'})
+keyset("o", "ic", "<Plug>(coc-classobj-i)", {silent = true, nowait = true, desc = 'Coc: クラスの内側を選択'})
+keyset("x", "ac", "<Plug>(coc-classobj-a)", {silent = true, nowait = true, desc = 'Coc: クラスの外側を選択'})
+keyset("o", "ac", "<Plug>(coc-classobj-a)", {silent = true, nowait = true, desc = 'Coc: クラスの外側を選択'})
 
 
 -- Remap <C-f> and <C-b> to scroll float windows/popups
@@ -169,20 +168,19 @@ vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}"
 -- Mappings for CoCList
 -- code actions and coc stuff
 ---@diagnostic disable-next-line: redefined-local
-local opts = {silent = true, nowait = true}
 -- Show all diagnostics
-keyset("n", "<space>a", ":<C-u>CocList diagnostics<cr>", opts)
+keyset("n", "<space>a", ":<C-u>CocList diagnostics<cr>", { silent = true, nowait = true, desc = 'Coc: Show all diagnostics' })
 -- Manage extensions
-keyset("n", "<space>e", ":<C-u>CocList extensions<cr>", opts)
+keyset("n", "<space>e", ":<C-u>CocList extensions<cr>", { silent = true, nowait = true, desc = 'Coc: Manage extensions' })
 -- Show commands
-keyset("n", "<space>c", ":<C-u>CocList commands<cr>", opts)
+keyset("n", "<space>c", ":<C-u>CocList commands<cr>", { silent = true, nowait = true, desc = 'Coc: Show commands' })
 -- Find symbol of current document
-keyset("n", "<space>o", ":<C-u>CocList outline<cr>", opts)
+keyset("n", "<space>o", ":<C-u>CocList outline<cr>", { silent = true, nowait = true, desc = 'Coc: Find symbol of current document' })
 -- Search workspace symbols
-keyset("n", "<space>s", ":<C-u>CocList -I symbols<cr>", opts)
+keyset("n", "<space>s", ":<C-u>CocList -I symbols<cr>", { silent = true, nowait = true, desc = 'Coc: Search workspace symbols' })
 -- Do default action for next item
-keyset("n", "<space>j", ":<C-u>CocNext<cr>", opts)
+keyset("n", "<space>j", ":<C-u>CocNext<cr>", { silent = true, nowait = true, desc = 'Coc: Do default action for next item' })
 -- Do default action for previous item
-keyset("n", "<space>k", ":<C-u>CocPrev<cr>", opts)
+keyset("n", "<space>k", ":<C-u>CocPrev<cr>", { silent = true, nowait = true, desc = 'Coc: Do default action for previous item' })
 -- Resume latest coc list
-keyset("n", "<space>p", ":<C-u>CocListResume<cr>", opts)
+keyset("n", "<space>p", ":<C-u>CocListResume<cr>", { silent = true, nowait = true, desc = 'Coc: Resume latest coc list' })

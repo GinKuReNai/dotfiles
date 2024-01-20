@@ -195,10 +195,10 @@ return packer.startup(function(use)
                 'copilot#Accept("<CR>")',
                 { silent = true, expr = true, script = true, replace_keycodes = false }
             )
-            keymap("i", "<C-j>", "<Plug>(copilot-next)")
-            keymap("i", "<C-k>", "<Plug>(copilot-previous)")
-            keymap("i", "<C-o>", "<Plug>(copilot-dismiss)")
-            keymap("i", "<C-s>", "<Plug>(copilot-suggest)")
+            keymap("i", "<C-j>", "<Plug>(copilot-next)", { desc = 'GitHub Copilot: 次の提案を選択' })
+            keymap("i", "<C-k>", "<Plug>(copilot-previous)", { desc = 'GitHub Copilot: 前の提案を選択' })
+            keymap("i", "<C-o>", "<Plug>(copilot-dismiss)", { desc = 'GitHub Copilot: 提案を却下' })
+            keymap("i", "<C-s>", "<Plug>(copilot-suggest)", { desc = 'GitHub Copilot: 提案を表示' })
         end,
     }
 
