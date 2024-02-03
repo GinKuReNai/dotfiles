@@ -18,7 +18,7 @@ require('telescope').setup({
             -- ripgrepのオプション
             'rg', -- ripgrepコマンド
             '--color=never', -- 色付けしない
-            '--no-heading', -- ファイル名のヘッダーを出力しない
+            '--no-heading', -- ファイル名を表示しない
             '--with-filename', -- 検索結果にファイル名を含める
             '--line-number', -- 検索結果に行番号を含める
             '--column', -- 検索結果に列番号を含める
@@ -67,4 +67,4 @@ vim.api.nvim_set_keymap(
 )
 
 -- よく使用するファイルの検索
-vim.keymap.set('n', '<leader>ffr', '<Cmd>Telescope frecency<CR>', { desc = 'Telescope: よく使用するファイルを表示' })
+vim.keymap.set('n', '<leader>ffr', '<Cmd>Telescope frecency workspace=CWD<CR>', { desc = 'Telescope: よく使用するファイルを表示' })
