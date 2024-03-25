@@ -254,6 +254,11 @@ return packer.startup(function(use)
         end
     }
 
+    -- Astro シンタックスハイライト
+    -- https://github.com/wuelnerdotexe/vim-astro
+    use { 'wuelnerdotexe/vim-astro' }
+    vim.g.astro_typescript = 'enable'
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
