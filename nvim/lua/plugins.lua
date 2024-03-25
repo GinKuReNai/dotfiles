@@ -221,15 +221,6 @@ return packer.startup(function(use)
     -- https://github.com/RRethy/vim-illuminate
     use { 'RRethy/vim-illuminate' }
 
-    -- スクロールを滑らかに
-    -- https://github.com/karb94/neoscroll.nvim
-    use {
-        "karb94/neoscroll.nvim",
-        config = function ()
-            require('neoscroll').setup {}
-        end
-    }
-
     -- スタート画面
     -- https://github.com/goolord/alpha-nvim
     use {
