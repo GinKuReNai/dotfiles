@@ -22,6 +22,8 @@ require("lualine_config")
 
 require("alpha_config")
 
+require("filetype")
+
 -- カラースキーマをGitHub仕様に設定
 vim.cmd('colorscheme tokyonight-night')
 

@@ -41,13 +41,16 @@ vim.opt.smartindent = true -- インデントをスマートに調整する
 -- インデント幅を言語毎に調整
 vim.api.nvim_create_autocmd("FileType", {
     pattern = {
+        "astro",
         "vue",
         "javascript",
         "typescript",
         "typescriptreact",
         "css",
         "terraform",
-        "yaml"
+        "yaml",
+        "markdown",
+        "mdx"
     },
     -- ウィンドウやバッファに対してのみローカルにのみ影響を与える
     callback = function()
