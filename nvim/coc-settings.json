@@ -1,4 +1,15 @@
 {
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.extensions.autoUpdate": true,
+    "coc.globalExtensions": [
+        "coc-eslint",
+        "coc-jedi",
+        "coc-pairs",
+        "coc-prettier",
+        "coc-snippets",
+        "coc-tsserver",
+        "friendly-snippets"
+    ],
     "languageserver": {
         "terraform": {
             "command": "terraform-ls",
@@ -90,4 +101,11 @@
     "jedi.executable.command": "jedi-language-server",
     "intelephense.environment.phpVersion": "8.2",
     "intelephense.environment.composerJsonPath": "./composer.json",
+    "intelephense.environment.phpVersion": "8.2",
+    "intelephense.environment.composerJsonPath": "./composer.json",
+    "eslint.filetypes": [
+        "javascript",
+        "typescript"
+    ],
+    "snippets.ultisnips.pythonPrompt": false,
 }
