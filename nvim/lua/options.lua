@@ -50,7 +50,9 @@ vim.api.nvim_create_autocmd("FileType", {
         "terraform",
         "yaml",
         "markdown",
-        "mdx"
+        "mdx",
+        "json",
+        "sh",
     },
     -- ウィンドウやバッファに対してのみローカルにのみ影響を与える
     callback = function()
