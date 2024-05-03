@@ -1,15 +1,6 @@
 {
     "coc.preferences.extensionUpdateCheck": "daily",
     "coc.preferences.extensions.autoUpdate": true,
-    "coc.globalExtensions": [
-        "coc-eslint",
-        "coc-jedi",
-        "coc-pairs",
-        "coc-prettier",
-        "coc-snippets",
-        "coc-tsserver",
-        "friendly-snippets"
-    ],
     "languageserver": {
         "terraform": {
             "command": "terraform-ls",

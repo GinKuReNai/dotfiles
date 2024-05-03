@@ -10,6 +10,21 @@ vim.opt.updatetime = 300
 -- diagnostics appeared/became resolved
 vim.opt.signcolumn = "yes"
 
+-- 拡張機能の自動インストール
+vim.g.coc_global_extensions = {
+    "coc-markdownlint",
+    "coc-vetur",
+    "coc-eslint",
+    "coc-jedi",
+    "coc-pairs",
+    "coc-prettier",
+    "coc-snippets",
+    "coc-tsserver",
+    "coc-phpls",
+    "coc-lua",
+    "https://github.com/rafamadriz/friendly-snippets@main",
+}
+
 local keyset = vim.keymap.set
 -- Autocomplete
 function _G.check_back_space()
