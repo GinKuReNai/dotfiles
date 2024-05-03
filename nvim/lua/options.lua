@@ -99,3 +99,6 @@ vim.opt.mouse = "a"
 -- showbreaksの設定
 vim.opt.showbreak = "↪"
 
+-- スペルチェック
+vim.opt.spell = true -- スペルチェックを有効にする
+vim.opt.spelllang = "en,cjk" -- スペルチェックの言語を英語に設定（中国語・日本語・韓国語は無効）
