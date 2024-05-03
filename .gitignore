@@ -1,1 +1,10 @@
 .DS_Store
+
+# lazygit
+lazygit/state.yml
+
+# tmux
+tmux/plugins
+
+# nvim
+nvim/plugin
