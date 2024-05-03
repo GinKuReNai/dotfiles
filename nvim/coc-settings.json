@@ -15,7 +15,7 @@
     },
     "diagnostic-languageserver.filetypes": {
         "php": ["phpcs", "phpstan"],
-        "python": ["flake8"],
+        "python": ["flake8"]
     },
     "diagnostic-languageserver.formatFiletypes": {
         "python": ["black"]
@@ -77,7 +77,7 @@
                 "I": "hint",
                 "C": "hint"
             }
-        },
+        }
     },
     "diagnostic-languageserver.formatters": {
         "black": {
@@ -85,16 +85,18 @@
             "args": ["--quiet", "-"],
             "rootPatterns": ["pyproject.toml", "setup.cfg", "tox.ini", ".git"],
             "formatStdin": true
-        },
+        }
     },
     "jedi.enable": true,
     "jedi.startupMessage": false,
     "jedi.executable.command": "jedi-language-server",
     "intelephense.environment.phpVersion": "8.2",
     "intelephense.environment.composerJsonPath": "./composer.json",
+    "intelephense.licenceKey": "00CXKXPZYS6SIYA",
     "eslint.filetypes": [
         "javascript",
         "typescript"
     ],
     "snippets.ultisnips.pythonPrompt": false,
+    "Lua.diagnostics.globals": ["vim", "use", "packer_plugins", "packer_compiled", "vim.fn", "vim.cmd", "vim.lsp", "vim.api"]
 }
