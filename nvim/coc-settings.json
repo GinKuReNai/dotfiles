@@ -101,8 +101,6 @@
     "jedi.executable.command": "jedi-language-server",
     "intelephense.environment.phpVersion": "8.2",
     "intelephense.environment.composerJsonPath": "./composer.json",
-    "intelephense.environment.phpVersion": "8.2",
-    "intelephense.environment.composerJsonPath": "./composer.json",
     "eslint.filetypes": [
         "javascript",
         "typescript"
