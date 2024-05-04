@@ -24,6 +24,8 @@ require("alpha_config")
 
 require("filetype")
 
+require("copilot_chat_config")
+
 -- カラースキーマをGitHub仕様に設定
 vim.cmd('colorscheme tokyonight-night')
 

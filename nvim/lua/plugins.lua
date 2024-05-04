@@ -254,6 +254,10 @@ return packer.startup(function(use)
         end
     }
 
+    -- GitHub Copilot Chat
+    -- https://github.com/CopilotC-Nvim/CopilotChat.nvim
+    use { "CopilotC-Nvim/CopilotChat.nvim" }
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
