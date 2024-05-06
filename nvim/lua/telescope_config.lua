@@ -16,14 +16,14 @@ require('telescope').setup({
         },
         vimgrep_arguments = {
             -- ripgrepのオプション
-            'rg', -- ripgrepコマンド
-            '--color=never', -- 色付けしない
-            '--no-heading', -- ファイル名を表示しない
+            'rg',              -- ripgrepコマンド
+            '--color=never',   -- 色付けしない
+            '--no-heading',    -- ファイル名を表示しない
             '--with-filename', -- 検索結果にファイル名を含める
-            '--line-number', -- 検索結果に行番号を含める
-            '--column', -- 検索結果に列番号を含める
-            '--smart-case', -- 検索文字列に大文字が含まれていない場合は大文字小文字を区別しない
-            '-uu', -- 隠しファイルも検索対象にする
+            '--line-number',   -- 検索結果に行番号を含める
+            '--column',        -- 検索結果に列番号を含める
+            '--smart-case',    -- 検索文字列に大文字が含まれていない場合は大文字小文字を区別しない
+            '-uu',             -- 隠しファイルも検索対象にする
         },
     }
 })
@@ -40,7 +40,7 @@ vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Telescope: Git�
 -- git log
 vim.keymap.set('n', '<leader>gl', builtin.git_commits, { desc = 'Telescope: Gitのログ一覧を表示' })
 -- 履歴の操作
-vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Telescope: 編集履歴を一覧表示'})
+vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Telescope: 編集履歴を一覧表示' })
 -- バッファの操作
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope: バッファーの一覧表示' })
 -- ヘルプタグの検索
@@ -53,7 +53,8 @@ vim.keymap.set('n', '<leader>fv', builtin.vim_options, { desc = 'Telescope: vim 
 vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope: キーマップの一覧表示' })
 
 -- 通知の一覧
-vim.api.nvim_set_keymap('n', '<leader>fn', ':Telescope notify<CR>', {noremap = true, silent = true, desc = 'Telescope: 通知の一覧'})
+vim.api.nvim_set_keymap('n', '<leader>fn', ':Telescope notify<CR>',
+    { noremap = true, silent = true, desc = 'Telescope: 通知の一覧' })
 
 -- ファイルブラウザ
 vim.api.nvim_set_keymap(

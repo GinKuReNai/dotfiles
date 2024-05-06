@@ -3,16 +3,16 @@ local fn = vim.fn
 -- Packerの自動インストール
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
+    PACKER_BOOTSTRAP = fn.system({
+        "git",
+        "clone",
+        "--depth",
+        "1",
+        "https://github.com/wbthomason/packer.nvim",
+        install_path,
+    })
+    print("Installing packer close and reopen Neovim...")
+    vim.cmd([[packadd packer.nvim]])
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -26,16 +26,16 @@ vim.cmd([[
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-	return
+    return
 end
 
 -- Install your plugins here
 return packer.startup(function(use)
-	use({ "wbthomason/packer.nvim" })
+    use({ "wbthomason/packer.nvim" })
 
-	-- 言語サーバーを用いた入力補完
-	-- https://github.com/neoclide/coc.nvim
-	use {'neoclide/coc.nvim', branch = 'release'}
+    -- 言語サーバーを用いた入力補完
+    -- https://github.com/neoclide/coc.nvim
+    use { 'neoclide/coc.nvim', branch = 'release' }
 
     -- カラースキームにGitHubを追加するプラグイン
     -- https://github.com/projekt0n/github-nvim-theme
@@ -45,20 +45,20 @@ return packer.startup(function(use)
     -- https://github.com/folke/tokyonight.nvim
     use { 'folke/tokyonight.nvim' }
 
-	-- アイコン
-	-- https://github.com/nvim-tree/nvim-web-devicons
-	use { 'nvim-tree/nvim-web-devicons' }
+    -- アイコン
+    -- https://github.com/nvim-tree/nvim-web-devicons
+    use { 'nvim-tree/nvim-web-devicons' }
 
     -- フッターを表示するプラグイン
     -- https://github.com/nvim-lualine/lualine.nvim
     use { 'nvim-lualine/lualine.nvim' }
 
-	-- Fuzzy Finder
-	-- https://github.com/nvim-telescope/telescope.nvim
-	use {
+    -- Fuzzy Finder
+    -- https://github.com/nvim-telescope/telescope.nvim
+    use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
-        requires = { {'nvim-lua/plenary.nvim'} }
-	}
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
 
     -- ファイルブラウザ(Telescope extension)
     -- https://github.com/nvim-telescope/telescope-file-browser.nvim
@@ -79,18 +79,18 @@ return packer.startup(function(use)
         end
     }
 
-	-- Git Signs
-	-- https://github.com/lewis6991/gitsigns.nvim
-	use {
+    -- Git Signs
+    -- https://github.com/lewis6991/gitsigns.nvim
+    use {
         'lewis6991/gitsigns.nvim',
         config = function()
-            require('gitsigns').setup{
+            require('gitsigns').setup {
                 -- Git Blameを毎回表示する
                 current_line_blame = true,
                 current_line_blame_opts = {
                     virt_text = true,
-                    virt_text_pos = 'eol', -- 行末に表示
-                    delay = 500, -- 0.5秒後に表示
+                    virt_text_pos = 'eol',    -- 行末に表示
+                    delay = 500,              -- 0.5秒後に表示
                     ignore_whitespace = true, -- 空白による変更履歴の計測を無視
                 },
                 current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
@@ -98,19 +98,19 @@ return packer.startup(function(use)
         end
     }
 
-	-- シンタックスハイライト
-	-- https://github.com/nvim-treesitter/nvim-treesitter
-		use {
-			'nvim-treesitter/nvim-treesitter',
-			run = function()
-					local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-					ts_update()
-			end,
-		}
-	
-	-- 高機能ファイラー
-	-- https://github.com/lambdalisue/fern.vim
-	use {'lambdalisue/fern.vim'}
+    -- シンタックスハイライト
+    -- https://github.com/nvim-treesitter/nvim-treesitter
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+    }
+
+    -- 高機能ファイラー
+    -- https://github.com/lambdalisue/fern.vim
+    use { 'lambdalisue/fern.vim' }
 
     -- Fernのアイコン
     -- https://github.com/lambdalisue/fern-renderer-nerdfont.vim
@@ -169,7 +169,7 @@ return packer.startup(function(use)
     -- https://github.com/akinsho/toggleterm.nvim
     use {
         "akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup{
+        require("toggleterm").setup {
             -- Ctrl + \ でターミナルを開く
             open_mapping = [[<c-\>]],
             direction = 'float',
@@ -177,7 +177,7 @@ return packer.startup(function(use)
                 border = 'curved'
             }
         }
-        end
+    end
     }
 
     -- GitHub Copilot
@@ -225,8 +225,8 @@ return packer.startup(function(use)
     -- https://github.com/goolord/alpha-nvim
     use {
         'goolord/alpha-nvim',
-        config = function ()
-            require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        config = function()
+            require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
         end
     }
 
@@ -258,11 +258,6 @@ return packer.startup(function(use)
     -- https://github.com/CopilotC-Nvim/CopilotChat.nvim
     use { "CopilotC-Nvim/CopilotChat.nvim" }
 
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
     -- GitHub Permanent Link Generator
     -- https://github.com/linrongbin16/gitlinker.nvim?tab=readme-ov-file
     use {
@@ -271,4 +266,10 @@ return packer.startup(function(use)
             require('gitlinker').setup {}
         end
     }
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if PACKER_BOOTSTRAP then
+        require("packer").sync()
+    end
 end)
