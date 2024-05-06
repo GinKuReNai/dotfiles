@@ -263,4 +263,12 @@ return packer.startup(function(use)
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
+    -- GitHub Permanent Link Generator
+    -- https://github.com/linrongbin16/gitlinker.nvim?tab=readme-ov-file
+    use {
+        'linrongbin16/gitlinker.nvim',
+        config = function()
+            require('gitlinker').setup {}
+        end
+    }
 end)

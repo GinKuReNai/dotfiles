@@ -35,3 +35,7 @@ vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', {noremap = true, silent = true}
 
 -- 自動フォーマット
 vim.api.nvim_set_keymap('n', '<leader>fm', '<cmd>call CocAction("format")<CR>', {noremap = true, silent = true, desc = '自動フォーマット'})
+
+-- GitHub Permanent Link
+vim.api.nvim_set_keymap("v", "gy", "<cmd>GitLink<CR>", { desc = 'Yank GitHub Permanent Link' })
+vim.api.nvim_set_keymap("v", "gY", "<cmd>GitLink!<CR>", { desc = 'Open GitHub Permanent Link' })
