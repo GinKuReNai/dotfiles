@@ -10,7 +10,7 @@ require('lualine').setup {
     },
     ignore_focus = {},
     always_divide_middle = true,
-    globalstatus = false,
+    globalstatus = true, -- ステータスラインを分割しない
     refresh = {
       statusline = 1000,
       tabline = 1000,
