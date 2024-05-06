@@ -54,7 +54,7 @@
         },
         "flake8": {
             "command": "flake8",
-            "args": ["--max-line-length=88", "--format=%(row)d,%(col)d,%(code).1s,%(code)s: %(text)s", "-"],
+            "args": ["--max-line-length=119", "--format=%(row)d,%(col)d,%(code).1s,%(code)s: %(text)s", "-"],
             "debounce": 100,
             "offsetLine": 0,
             "offsetColumn": 0,
