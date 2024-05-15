@@ -11,3 +11,6 @@ nvim/plugin
 
 # coc
 coc/extensions
+
+# karabinar
+karabiner/automatic_backups
