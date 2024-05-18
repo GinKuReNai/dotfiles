@@ -9,7 +9,7 @@ os:
   editPreset: "nvim"
 
 customCommands:
-  - key: "<c-c>"
+  - key: "c"
     context: "files"
     description: 'commit files with format'
     prompts:
@@ -74,3 +74,7 @@ customCommands:
         body: "Commit with the message '{{.Form.Type}} {{.Form.Message}}'. Is this okay?"
     command: "bash -c 'type=\"{{.Form.Type}}\"; message=\"{{.Form.Message}}\"; commit_message=\"$type $message\"; git commit -m \"$commit_message\"'"
     loadingText: "Committing..."
+
+keybinding:
+  files:
+    commitChanges: "<c-c>" # カスタムコマンドと入れ替える
