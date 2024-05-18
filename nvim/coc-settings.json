@@ -1,101 +1,107 @@
 {
-    "coc.preferences.extensionUpdateCheck": "daily",
-    "coc.preferences.extensions.autoUpdate": true,
-    "languageserver": {
-        "terraform": {
-            "command": "terraform-ls",
-            "args": ["serve"],
-            "filetypes": [
-                "terraform",
-                "tf"
-            ],
-            "initializationOptions": {},
-            "settings": {}
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.extensions.autoUpdate": true,
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  },
+  "diagnostic-languageserver.filetypes": {
+    "php": ["phpcs", "phpstan"],
+    "python": ["flake8"]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "python": ["black", "isort"]
+  },
+  "diagnostic-languageserver.linters": {
+    "phpcs": {
+      "args": [
+        "--standard=./phpcs.xml",
+        "--exclude=PSR1.Methods.CamelCapsMethodName.NotCamelCaps",
+        "--report=emacs",
+        "-s",
+        "-"
+      ],
+      "command": "./vendor/bin/phpcs",
+      "formatPattern": [
+        "^.*:(\\d+):(\\d+):\\s+(.*)\\s+-\\s+(.*)(\\r|\\n)*$",
+        {
+          "column": 2,
+          "line": 1,
+          "message": 4,
+          "security": 3
         }
+      ],
+      "offsetColumnEnd": 1,
+      "rootPatterns": ["composer.json", "composer.lock", "vendor", ".git"],
+      "securities": {
+        "error": "error",
+        "warning": "warning"
+      },
+      "sourceName": "phpcs"
     },
-    "diagnostic-languageserver.filetypes": {
-        "php": ["phpcs", "phpstan"],
-        "python": ["flake8"]
-    },
-    "diagnostic-languageserver.formatFiletypes": {
-        "python": ["black"]
-    },
-    "diagnostic-languageserver.linters": {
-        "phpcs": {
-            "args": [
-                "--standard=./phpcs.xml",
-                "--exclude=PSR1.Methods.CamelCapsMethodName.NotCamelCaps",
-                "--report=emacs",
-                "-s",
-                "-"
-            ],
-            "command": "./vendor/bin/phpcs",
-            "formatPattern": [
-                "^.*:(\\d+):(\\d+):\\s+(.*)\\s+-\\s+(.*)(\\r|\\n)*$",
-                {
-                    "column": 2,
-                    "line": 1,
-                    "message": 4,
-                    "security": 3
-                }
-            ],
-            "offsetColumnEnd": 1,
-            "rootPatterns": [
-                "composer.json",
-                "composer.lock",
-                "vendor",
-                ".git"
-            ],
-            "securities": {
-                "error": "error",
-                "warning": "warning"
-            },
-            "sourceName": "phpcs"
-        },
-        "flake8": {
-            "command": "flake8",
-            "args": ["--max-line-length=119", "--format=%(row)d,%(col)d,%(code).1s,%(code)s: %(text)s", "-"],
-            "debounce": 100,
-            "offsetLine": 0,
-            "offsetColumn": 0,
-            "sourceName": "flake8",
-            "formatLines": 1,
-            "formatPattern": [
-                "^(\\d+),(\\d+),([A-Z]),(\\w+ \\d+) (.*)$",
-                {
-                    "line": 1,
-                    "column": 2,
-                    "security": 3,
-                    "code": 4,
-                    "message": 5
-                }
-            ],
-            "securities": {
-                "E": "error",
-                "W": "warning",
-                "F": "info",
-                "I": "hint",
-                "C": "hint"
-            }
+    "flake8": {
+      "command": "flake8",
+      "args": [
+        "--max-line-length=119",
+        "--format=%(row)d,%(col)d,%(code).1s,%(code)s: %(text)s",
+        "-"
+      ],
+      "debounce": 100,
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "flake8",
+      "formatLines": 1,
+      "formatPattern": [
+        "^(\\d+),(\\d+),([A-Z]),(\\w+ \\d+) (.*)$",
+        {
+          "line": 1,
+          "column": 2,
+          "security": 3,
+          "code": 4,
+          "message": 5
         }
+      ],
+      "securities": {
+        "E": "error",
+        "W": "warning",
+        "F": "info",
+        "I": "hint",
+        "C": "hint"
+      }
+    }
+  },
+  "diagnostic-languageserver.formatters": {
+    "black": {
+      "command": "black",
+      "args": ["--line-length", "119", "-q", "-"],
+      "rootPatterns": ["pyproject.toml", "setup.cfg", "tox.ini", ".git"],
+      "formatStdin": true
     },
-    "diagnostic-languageserver.formatters": {
-        "black": {
-            "command": "black",
-            "args": ["--quiet", "-"],
-            "rootPatterns": ["pyproject.toml", "setup.cfg", "tox.ini", ".git"],
-            "formatStdin": true
-        }
-    },
-    "jedi.enable": true,
-    "jedi.startupMessage": false,
-    "jedi.executable.command": "jedi-language-server",
-    "intelephense.environment.phpVersion": "8.2",
-    "intelephense.environment.composerJsonPath": "./composer.json",
-    "eslint.filetypes": [
-        "javascript",
-        "typescript"
-    ],
-    "snippets.ultisnips.pythonPrompt": false,
-    "Lua.diagnostics.globals": ["vim", "use", "packer_plugins", "packer_compiled", "vim.fn", "vim.cmd", "vim.lsp", "vim.api"]
+    "isort": {
+      "command": "isort",
+      "args": ["-q", "-"]
+    }
+  },
+  "jedi.enable": true,
+  "jedi.startupMessage": false,
+  "jedi.executable.command": "jedi-language-server",
+  "intelephense.environment.phpVersion": "8.2",
+  "intelephense.environment.composerJsonPath": "./composer.json",
+  "eslint.filetypes": ["javascript", "typescript"],
+  "snippets.ultisnips.pythonPrompt": false,
+  "Lua.diagnostics.globals": [
+    "vim",
+    "use",
+    "packer_plugins",
+    "packer_compiled",
+    "vim.fn",
+    "vim.cmd",
+    "vim.lsp",
+    "vim.api"
+  ]
 }
