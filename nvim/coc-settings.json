@@ -90,6 +90,13 @@
   "jedi.enable": true,
   "jedi.startupMessage": false,
   "jedi.executable.command": "jedi-language-server",
+  "languageserver": {
+    "jedi": {
+      "command": "docker",
+      "args": ["exec", "-i", "コンテナ名", "jedi-language-server"],
+      "filetypes": ["python"]
+    }
+  },
   "intelephense.environment.phpVersion": "8.2",
   "intelephense.environment.composerJsonPath": "./composer.json",
   "eslint.filetypes": ["javascript", "typescript"],
