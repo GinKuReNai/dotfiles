@@ -22,6 +22,7 @@ vim.g.coc_global_extensions = {
     "coc-tsserver",
     "coc-phpls",
     "coc-lua",
+    "coc-go",
     "coc-diagnostic",
     "https://github.com/rafamadriz/friendly-snippets@main",
 }
