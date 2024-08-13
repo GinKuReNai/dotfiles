@@ -53,6 +53,7 @@ vim.api.nvim_create_autocmd("FileType", {
         "mdx",
         "json",
         "sh",
+        "toml",
     },
     -- ウィンドウやバッファに対してのみローカルにのみ影響を与える
     callback = function()
