@@ -25,6 +25,7 @@ vim.g.coc_global_extensions = {
     "coc-go",
     "coc-diagnostic",
     "coc-react-refactor",
+    "coc-sql",
     "https://github.com/rafamadriz/friendly-snippets@main",
 }
 
