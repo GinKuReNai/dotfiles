@@ -11,3 +11,6 @@ require("CopilotChat").setup {
 
     model = 'gpt-4',
 }
+
+vim.api.nvim_set_keymap('n', '<C-i>', '<cmd>CopilotChat<CR>', { noremap = true, silent = true, desc = 'GitHub Copilot Chat(Normal Mode)' })
+vim.api.nvim_set_keymap('v', '<C-i>', '<cmd>CopilotChat<CR>', { noremap = true, silent = true, desc = 'GitHub Copilot Chat(Yank Mode)' })
