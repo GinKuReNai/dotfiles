@@ -9,7 +9,7 @@ require("CopilotChat").setup {
         height = 0.8,
     },
 
-    model = 'gpt-4',
+    model = 'gpt-4o',
 }
 
 vim.api.nvim_set_keymap('n', '<C-i>', '<cmd>CopilotChat<CR>', { noremap = true, silent = true, desc = 'GitHub Copilot Chat(Normal Mode)' })
