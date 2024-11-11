@@ -140,20 +140,6 @@ return packer.startup(function(use)
         }
     }
 
-    -- コマンド入力・通知のリッチ化
-    -- https://github.com/folke/noice.nvim
-    use {
-        "folke/noice.nvim",
-        event = "VimEnter",
-        requires = {
-            "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify" -- Optional, for notification view
-        },
-        config = function()
-            require("noice").setup()
-        end
-    }
-
     -- エラー表記のリッチ化
     -- https://github.com/folke/trouble.nvim
     use {
