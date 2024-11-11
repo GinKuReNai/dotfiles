@@ -72,12 +72,12 @@ return packer.startup(function(use)
 
     -- よく使用するファイルの検索(Telescope extension)
     -- https://github.com/nvim-telescope/telescope-frecency.nvim
-    use {
-        'nvim-telescope/telescope-frecency.nvim',
-        config = function()
-            require('telescope').load_extension('frecency')
-        end
-    }
+    -- use {
+    --     'nvim-telescope/telescope-frecency.nvim',
+    --     config = function()
+    --         require('telescope').load_extension('frecency')
+    --     end
+    -- }
 
     -- Git Signs
     -- https://github.com/lewis6991/gitsigns.nvim
