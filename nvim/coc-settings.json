@@ -76,6 +76,16 @@
         "I": "hint",
         "C": "hint"
       }
+    },
+    "phpstan": {
+      "command": "./vendor/bin/phpstan",
+      "args": [
+        "analyze",
+        "--configuration=./phpstan.neon",
+        "--error-format=raw",
+        "--no-progress",
+        "-"
+      ]
     }
   },
   "diagnostic-languageserver.formatters": {
