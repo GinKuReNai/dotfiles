@@ -110,7 +110,7 @@
       "filetypes": ["python"]
     }
   },
-  "intelephense.environment.phpVersion": "8.2",
+  "intelephense.environment.phpVersion": "8.3",
   "intelephense.environment.composerJsonPath": "./composer.json",
   "eslint.filetypes": ["javascript", "typescript"],
   "snippets.ultisnips.pythonPrompt": false,
