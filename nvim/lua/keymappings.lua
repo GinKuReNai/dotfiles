@@ -7,12 +7,6 @@ vim.keymap.set('n', 'ss', ':split<Return><C-w>w', { desc = '水平分割' })
 -- 垂直分割
 vim.keymap.set('n', 'sv', ':vsplit<Return><C-w>w', { desc = '垂直分割' })
 
--- アクティブウィンドウの移動
-vim.keymap.set('n', '<A-h>', '<C-w>h', { desc = '左のウィンドウに移動' })
-vim.keymap.set('n', '<A-j>', '<C-w>j', { desc = '下のウィンドウに移動' })
-vim.keymap.set('n', '<A-k>', '<C-w>k', { desc = '上のウィンドウに移動' })
-vim.keymap.set('n', '<A-l>', '<C-w>l', { desc = '右のウィンドウに移動' })
-
 -- 'jj' でエスケープ（インサートモードからノーマルモードへ）
 vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true, silent = true, desc = 'インサートモードからノーマルモードへ' })
 
@@ -40,3 +34,32 @@ vim.api.nvim_set_keymap('n', '<leader>fm', '<cmd>call CocAction("format")<CR>',
 -- GitHub Permanent Link
 vim.api.nvim_set_keymap("v", "gy", "<cmd>GitLink<CR>", { desc = 'Yank GitHub Permanent Link' })
 vim.api.nvim_set_keymap("v", "gY", "<cmd>GitLink!<CR>", { desc = 'Open GitHub Permanent Link' })
+
+-- ###############################################################
+
+-- ウィンドウサイズの制御関数
+local function resize_window(direction, amount)
+  local current_win = vim.api.nvim_get_current_win()  -- 現在のウィンドウを保存
+  local cmd
+  if direction == "vertical" then
+    cmd = "vertical resize " .. amount
+  elseif direction == "horizontal" then
+    cmd = "resize " .. amount
+  end
+  vim.cmd(cmd)
+  vim.api.nvim_set_current_win(current_win)  -- 元のウィンドウに戻る
+end
+
+-- ウィンドウサイズの制御
+vim.keymap.set("n", "=", function() resize_window("vertical", "+5") end, { noremap = true, silent = true, desc = 'ウィンドウ幅を広げる' })
+vim.keymap.set("n", "-", function() resize_window("vertical", "-5") end, { noremap = true, silent = true, desc = 'ウィンドウ幅を狭める' })
+vim.keymap.set("n", "+", function() resize_window("horizontal", "+2") end, { noremap = true, silent = true, desc = 'ウィンドウ高さを広げる' })
+vim.keymap.set("n", "_", function() resize_window("horizontal", "-2") end, { noremap = true, silent = true, desc = 'ウィンドウ高さを狭める' })
+
+-- アクティブウィンドウの移動
+vim.keymap.set('n', '<A-h>', '<C-w>h', { desc = '左のウィンドウに移動' })
+vim.keymap.set('n', '<A-j>', '<C-w>j', { desc = '下のウィンドウに移動' })
+vim.keymap.set('n', '<A-k>', '<C-w>k', { desc = '上のウィンドウに移動' })
+vim.keymap.set('n', '<A-l>', '<C-w>l', { desc = '右のウィンドウに移動' })
+
+-- ###############################################################
