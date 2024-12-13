@@ -242,7 +242,15 @@ return packer.startup(function(use)
 
     -- GitHub Copilot Chat
     -- https://github.com/CopilotC-Nvim/CopilotChat.nvim
-    use { "CopilotC-Nvim/CopilotChat.nvim" }
+    use {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        branch = "main",
+        requires = {
+            { "github/copilot.vim" },
+            { "nvim-lua/plenary.nvim", branch = "master" }
+        },
+        run = "make tiktoken"
+    }
 
     -- GitHub Permanent Link Generator
     -- https://github.com/linrongbin16/gitlinker.nvim?tab=readme-ov-file
