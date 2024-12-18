@@ -18,6 +18,23 @@ fi
 # デフォルトのシェルをzshに変更
 chsh -s $(which zsh)
 
+# Homebrewのインストール
+if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+    echo "Homebrew is already installed."
+fi
+
+# Brewfileを用いたbrew bundleの実行
+BREWFILE="$SCRIPT_DIR/.Brewfile"
+if [ -f "$BREWFILE" ]; then
+    echo "Running brew bundle using $BREWFILE..."
+    brew bundle --file="$BREWFILE"
+else
+    echo "Error: $BREWFILE not found. Skipping brew bundle."
+fi
+
 # nvimディレクトリのシンボリックリンクを作成
 NVIM_SOURCE="$SCRIPT_DIR/nvim"
 NVIM_TARGET="$CONFIG_DIR/nvim"
@@ -38,21 +55,34 @@ else
     ln -s "$TMUX_SOURCE" "$TMUX_TARGET"
 fi
 
-# Homebrewのインストール
-if ! command -v brew >/dev/null 2>&1; then
-    echo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# lazygitディレクトリのシンボリックリンクを作成
+LAZYGIT_SOURCE="$SCRIPT_DIR/lazygit"
+LAZYGIT_TARGET="$CONFIG_DIR/lazygit"
+if [ -e "$LAZYGIT_TARGET" ]; then
+    echo "$LAZYGIT_TARGET already exists. Skipping symlink creation."
 else
-    echo "Homebrew is already installed."
+    echo "Creating symlink for lazygit: $LAZYGIT_SOURCE -> $LAZYGIT_TARGET"
+    ln -s "$LAZYGIT_SOURCE" "$LAZYGIT_TARGET"
 fi
 
-# Brewfileを用いたbrew bundleの実行
-BREWFILE="$SCRIPT_DIR/.Brewfile"
-if [ -f "$BREWFILE" ]; then
-    echo "Running brew bundle using $BREWFILE..."
-    brew bundle --file="$BREWFILE"
+# .zshrcのシンボリックリンクを作成
+ZSHRC_SOURCE="$SCRIPT_DIR/.zshrc"
+ZSHRC_TARGET="$HOME/.zshrc"
+if [ -e "$ZSHRC_TARGET" ]; then
+    echo "$ZSHRC_TARGET already exists. Skipping symlink creation."
 else
-    echo "Error: $BREWFILE not found. Skipping brew bundle."
+    echo "Creating symlink for zshrc: $ZSHRC_SOURCE -> $ZSHRC_TARGET"
+    ln -s "$ZSHRC_SOURCE" "$ZSHRC_TARGET"
+fi
+
+# starship.tomlのリンボリックリンクを作成
+STARSHIP_SOURCE="$SCRIPT_DIR/starship.toml"
+STARSHIP_TARGET="$HOME/starship.toml"
+if [ -e "$STARSHIP_TARGET" ]; then
+    echo "$STARSHIP_TARGET already exists. Skipping symlink creation."
+else
+    echo "Creating symlink for starship.toml: $STARSHIP_SOURCE -> $STARSHIP_TARGET"
+    ln -s "$STARSHIP_SOURCE" "$STARSHIP_TARGET"
 fi
 
 # /opt/homebrew/shareの権限変更
