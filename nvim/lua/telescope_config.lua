@@ -25,7 +25,13 @@ require('telescope').setup({
             '--smart-case',    -- 検索文字列に大文字が含まれていない場合は大文字小文字を区別しない
             '-uu',             -- 隠しファイルも検索対象にする
         },
-    }
+    },
+
+    pickers = {
+        find_files = {
+            hidden = true, -- 隠しファイルを表示
+        },
+    },
 })
 
 -- telescopeのキーマッピング
