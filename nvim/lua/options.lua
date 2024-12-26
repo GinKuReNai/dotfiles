@@ -103,3 +103,7 @@ vim.opt.showbreak = "↪"
 -- スペルチェック
 vim.opt.spell = true         -- スペルチェックを有効にする
 vim.opt.spelllang = "en,cjk" -- スペルチェックの言語を英語に設定（中国語・日本語・韓国語は無効）
+
+-- 検索時の大文字・小文字を区別しない
+vim.opt.ignorecase = true -- 検索時に大文字・小文字を区別しない
+vim.opt.smartcase = true  -- 検索時に大文字が含まれている場合は区別する
