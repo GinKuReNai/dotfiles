@@ -14,7 +14,7 @@ require('bufferline').setup {
             reveal = { 'close' }
         },
         -- coc.nvimによる診断結果を表示
-        diagnostics = "coc",
+        -- diagnostics = "coc",
     },
 }
 

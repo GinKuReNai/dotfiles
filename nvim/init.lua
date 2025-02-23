@@ -1,39 +1,22 @@
-require("options")
+require("config.options")
 
-require("plugins")
+require("config.lazy")
 
-require("keymappings")
+require("config.keymappings")
 
-require("coc_config")
+require("config.coc")
 
-require("telescope_config")
+require("config.bufferline")
 
-require("treesitter_config")
+require("config.indent_color")
 
-require("bufferline_config")
+require("config.filetype")
 
-require("indent_color_config")
-
-require("toggleterm_config")
-
-require("fern_config")
-
-require("lualine_config")
-
-require("alpha_config")
-
-require("filetype")
-
-require("copilot_chat_config")
-
--- カラースキーマをGitHub仕様に設定
+-- -- カラースキーマを設定
 vim.cmd('colorscheme tokyonight-night')
 
--- フッターを起動
-local lualine_theme = require'lualine.themes.material'
+-- -- フッターを起動
+local lualine_theme = require 'lualine.themes.material'
 require('lualine').setup {
-  options = { theme  = lualine_theme }
+    options = { theme = lualine_theme }
 }
-
--- Gitの変更箇所のデコレーション
-require('gitsigns').setup {}
