@@ -12,6 +12,8 @@ require("config.indent_color")
 
 require("config.filetype")
 
+require("config.copilot")
+
 -- -- カラースキーマを設定
 vim.cmd('colorscheme tokyonight-night')
 
