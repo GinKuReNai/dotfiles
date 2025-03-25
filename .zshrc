@@ -10,6 +10,10 @@ export XDG_CONFIG_HOME="$HOME/.config"
 ## HOMEBREW
 export PATH="/opt/homebrew/bin:$PATH"
 
+## Go
+gopath=$(go env GOPATH)
+export PATH="$gopath/bin:$PATH"
+
 ## zsh plugins
 if type brew &>/dev/null; then
   # zsh-completions
