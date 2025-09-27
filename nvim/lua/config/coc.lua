@@ -198,8 +198,9 @@ keyset("n", "<space>e", ":<C-u>CocList extensions<cr>", { silent = true, nowait 
 -- Show commands
 keyset("n", "<space>c", ":<C-u>CocList commands<cr>", { silent = true, nowait = true, desc = 'Coc: Show commands' })
 -- Find symbol of current document
-keyset("n", "<space>o", ":<C-u>CocList outline<cr>",
-    { silent = true, nowait = true, desc = 'Coc: Find symbol of current document' })
+-- # memo: OpenRouterと競合するのでコメントアウト
+-- keyset("n", "<space>o", ":<C-u>CocList outline<cr>",
+--     { silent = true, nowait = true, desc = 'Coc: Find symbol of current document' })
 -- Search workspace symbols
 -- keyset("n", "<space>s", ":<C-u>CocList -I symbols<cr>", { silent = true, nowait = true, desc = 'Coc: Search workspace symbols' })
 -- Do default action for next item

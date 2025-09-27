@@ -14,6 +14,9 @@ export PATH="/opt/homebrew/bin:$PATH"
 gopath=$(go env GOPATH)
 export PATH="$gopath/bin:$PATH"
 
+## OpenCode
+export EDITOR=nvim
+
 ## zsh plugins
 if type brew &>/dev/null; then
   # zsh-completions
