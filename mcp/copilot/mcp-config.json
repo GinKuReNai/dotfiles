@@ -33,6 +33,23 @@
         "-y",
         "@upstash/context7-mcp@latest"
       ]
+    },
+    "aws-api-mcp-server": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "--interactive",
+        "--env",
+        "AWS_REGION=ap-northeast-1",
+        "--volume",
+        "/full/path/to/.aws:/app/.aws",
+        "public.ecr.aws/awslabs-mcp/awslabs/aws-api-mcp-server:latest"
+      ],
+      "env": {}
+    },
+    "aws-knowledge-mcp-server": {
+      "url": "https://knowledge-mcp.global.api.aws"
     }
   }
 }
