@@ -18,7 +18,7 @@ export PATH="$gopath/bin:$PATH"
 export EDITOR=nvim
 
 ## GitHub Copilot CLI
-export COPILOT_MODEL=gpt-5
+export COPILOT_MODEL="claude-sonnet-4.5"
 
 ## zsh plugins
 if type brew &>/dev/null; then
