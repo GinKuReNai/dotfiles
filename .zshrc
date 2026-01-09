@@ -4,6 +4,11 @@ export LANG=ja_JP.UTF-8
 ## PROMPT
 PROMPT="%n ($(arch)):%~"$'\n'"%# "
 
+## Alias
+alias nv="nvim"
+alias ls="ls -al"
+alias lg="lazygit"
+
 ## XDG_CONFIG_HOME
 export XDG_CONFIG_HOME="$HOME/.config"
 
