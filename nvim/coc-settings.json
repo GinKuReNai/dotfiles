@@ -1,9 +1,6 @@
 {
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.extensions.autoUpdate": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "go"
-  ],
   "languageserver": {
     "terraform": {
       "command": "terraform-ls",
@@ -16,9 +13,6 @@
   "diagnostic-languageserver.filetypes": {
     "php": ["phpcs", "phpstan"],
     "python": ["flake8"]
-  },
-  "diagnostic-languageserver.formatFiletypes": {
-    "python": ["black", "isort"]
   },
   "diagnostic-languageserver.linters": {
     "phpcs": {
@@ -86,18 +80,6 @@
         "--no-progress",
         "-"
       ]
-    }
-  },
-  "diagnostic-languageserver.formatters": {
-    "black": {
-      "command": "black",
-      "args": ["--line-length", "119", "-q", "-"],
-      "rootPatterns": ["pyproject.toml", "setup.cfg", "tox.ini", ".git"],
-      "formatStdin": true
-    },
-    "isort": {
-      "command": "isort",
-      "args": ["-q", "-"]
     }
   },
   "jedi.enable": true,
