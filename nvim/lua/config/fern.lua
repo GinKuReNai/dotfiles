@@ -1,4 +1,3 @@
 -- 隠しファイル（ドットファイル）をデフォルトで表示する設定
 -- 0 = 隠しファイルを表示、1 = 隠しファイルを非表示
-vim.g['fern#default_hidden'] = true
-
+vim.g["fern#default_hidden"] = true
