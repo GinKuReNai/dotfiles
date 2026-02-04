@@ -3,6 +3,9 @@ return {
 	tag = "0.1.5",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
+        -- trouble.nvim との連携
+        local trouble = require("trouble.sources.telescope")
+
 		-- Telescopeの設定
 		require("telescope").setup({
 			defaults = {
@@ -31,6 +34,11 @@ return {
 					"--smart-case", -- 大文字小文字を区別しない（大文字が含まれていない場合）
 					"-uu", -- 隠しファイルも検索対象にする
 				},
+                mappings = {
+                    -- memo: 同一名のファイルの中身を詳しく閲覧したい場合等で, trouble.nvim の大きいウィンドウで中身を確認しながらファイル探索ができる
+                    i = { ["<c-t>"] = trouble.open}, -- Insert mode で Ctrl + t を押下すると Trouble で開く
+                    n = { ["<c-t>"] = trouble.open}, -- Normal mode でも同様
+                }
 			},
 			pickers = {
 				find_files = {
