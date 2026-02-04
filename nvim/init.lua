@@ -16,6 +16,9 @@ require("config.copilot")
 
 require("config.fern")
 
+
+require("config.diagnostic")
+
 -- -- カラースキーマを設定
 vim.cmd('colorscheme tokyonight-night')
 
