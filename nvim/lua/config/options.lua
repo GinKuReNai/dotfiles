@@ -107,3 +107,11 @@ vim.opt.spelllang = "en,cjk" -- スペルチェックの言語を英語に設定
 -- 検索時の大文字・小文字を区別しない
 vim.opt.ignorecase = true -- 検索時に大文字・小文字を区別しない
 vim.opt.smartcase = true -- 検索時に大文字が含まれている場合は区別する
+
+-- 外部でファイルが書き換えられた場合に自動で再読み込み
+vim.opt.autoread = true
+-- 読み込みのタイミングを増やすための設定
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+    pattern = "*",
+    command = "if mode() != 'c' | checktime | endif",
+})
