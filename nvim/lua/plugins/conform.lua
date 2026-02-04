@@ -27,8 +27,8 @@ return {
 			typescript = { "prettier" },
 			-- Lua
 			lua = { "stylua" },
-            -- PHP
-            php = { "php_cs_fixer" },
+			-- PHP
+			php = { "php_cs_fixer" },
 		},
 		format_on_save = {
 			timeout_ms = 500,

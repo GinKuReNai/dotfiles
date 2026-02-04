@@ -20,10 +20,10 @@ require("config.fern")
 require("config.diagnostic")
 
 -- -- カラースキーマを設定
-vim.cmd('colorscheme tokyonight-night')
+vim.cmd("colorscheme tokyonight-night")
 
 -- -- フッターを起動
-local lualine_theme = require 'lualine.themes.material'
-require('lualine').setup {
-    options = { theme = lualine_theme }
-}
+local lualine_theme = require("lualine.themes.material")
+require("lualine").setup({
+	options = { theme = lualine_theme },
+})

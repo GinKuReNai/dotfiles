@@ -8,7 +8,9 @@ return {
 			"prettier", -- JavaScript/TypeScript Formatter
 			"goimports", -- Go Import Organizer
 			"gofumpt", -- Go Formatter
-            "php-cs-fixer", -- PHP Formatter
+			"php-cs-fixer", -- PHP Formatter
+			"hadolint", -- hadolint
+			"pyright", -- Python Language Server
 		},
 	},
 }
