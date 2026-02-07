@@ -11,6 +11,14 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR=nvim
 export COPILOT_MODEL="claude-sonnet-4.5"
 
+# Claude Code
+export PATH="$HOME/.local/bin:$PATH"
+
+# Neovim
+# AppImage で install した場合のPATH
+# https://neovim.io/doc/install/
+export PATH="$PATH:/opt/nvim/"
+
 # Alias
 alias nv="nvim"
 alias lg="lazygit"
