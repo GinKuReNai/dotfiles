@@ -28,6 +28,13 @@ return {
 			hidden = true, -- 初期状態では非表示
 		})
 
+		-- lazysql用のターミナル設定
+		local lazysql = Terminal:new({
+			cmd = "lazysql", -- lazysqlを起動するコマンド
+			direction = "float", -- フロートウィンドウで表示
+			hidden = true, -- 初期状態では非表示
+		})
+
 		-- lazygitをトグルする関数
 		function _lazygit_toggle()
 			lazygit:toggle()
@@ -36,6 +43,11 @@ return {
 		-- lazydockerをトグルする関数
 		function _lazydocker_toggle()
 			lazydocker:toggle()
+		end
+
+		-- lazysqlをトグルする関数
+		function _lazysql_toggle()
+			lazysql:toggle()
 		end
 
 		-- キーマッピングの設定
@@ -51,6 +63,13 @@ return {
 			"<leader>ld",
 			"<cmd>lua _lazydocker_toggle()<CR>",
 			{ noremap = true, silent = true, desc = "lazydockerを開く" }
+		)
+
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>ls",
+			"<cmd>lua _lazysql_toggle()<CR>",
+			{ noremap = true, silent = true, desc = "lazysqlを開く" }
 		)
 	end,
 }
