@@ -245,3 +245,17 @@ run = 'move-node-to-workspace 2'
 [[on-window-detected]]
 if.app-id = 'com.jgraph.drawio.desktop'
 run = 'move-node-to-workspace 3'
+
+# Microsoft Teams をワークスペース 3 に移動
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2' # 新しい Teams (Teams 2.0)
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams'  # 旧 Teams (念のため)
+run = 'move-node-to-workspace 3'
+
+# Zoom をワークスペース 3 に移動
+[[on-window-detected]]
+if.app-id = 'us.zoom.xos'
+run = 'move-node-to-workspace 3'
