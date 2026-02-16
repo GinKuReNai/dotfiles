@@ -233,4 +233,10 @@ run = [
 if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace 1'
 
-
+# VSCode をワークスペース 2 に移動する
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCodeInsiders'
+run = 'move-node-to-workspace 2'
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace 2'
