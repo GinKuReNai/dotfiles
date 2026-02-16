@@ -240,3 +240,8 @@ run = 'move-node-to-workspace 2'
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
 run = 'move-node-to-workspace 2'
+
+# Draw.io をワークスペース 3 に移動する
+[[on-window-detected]]
+if.app-id = 'com.jgraph.drawio.desktop'
+run = 'move-node-to-workspace 3'
