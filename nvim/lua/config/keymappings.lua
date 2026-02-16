@@ -79,7 +79,7 @@ vim.keymap.set("n", "_", function()
 end, { noremap = true, silent = true, desc = "ウィンドウ高さを狭める" })
 
 -- アクティブウィンドウの移動
-vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = "左のウィンドウに移動" })
-vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = "下のウィンドウに移動" })
-vim.keymap.set("n", "<A-k>", "<C-w>k", { desc = "上のウィンドウに移動" })
-vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = "右のウィンドウに移動" })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "左のウィンドウに移動" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "下のウィンドウに移動" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "上のウィンドウに移動" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "右のウィンドウに移動" })
