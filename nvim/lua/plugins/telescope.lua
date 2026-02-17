@@ -33,6 +33,23 @@ return {
 					"--column", -- 検索結果に列番号を含める
 					"--smart-case", -- 大文字小文字を区別しない（大文字が含まれていない場合）
 					"-uu", -- 隠しファイルも検索対象にする
+
+                    -- ripgrep で特定のディレクトリを検索対象から除外する
+                    '--glob=!**/.git/*',
+                    '--glob=!**/node_modules/*',
+                    '--glob=!**/vendor/*',
+                    '--glob=!**/Library/*',
+                    '--glob=!**/.terraform/*',
+                    '--glob=!**/.venv/*',
+                    '--glob=!**/__pycache__/*',
+                    '--glob=!**/.pytest_cache/*',
+                    '--glob=!**/.mypy_cache/*',
+                    '--glob=!**/package-lock.json',
+                    '--glob=!**/yarn.lock',
+                    '--glob=!**/*.svg',
+                    '--glob=!**/*.png',
+                    '--glob=!**/*.jpg',
+                    '--glob=!**/*.jpeg',
 				},
                 mappings = {
                     -- memo: 同一名のファイルの中身を詳しく閲覧したい場合等で, trouble.nvim の大きいウィンドウで中身を確認しながらファイル探索ができる
