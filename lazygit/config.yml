@@ -1,27 +1,54 @@
 git:
   parseEmoji: true
-
 gui:
-  language: 'ja'
+  language: "ja"
   nerdFontsVersion: "3"
-
 os:
   editPreset: "nvim"
-
 customCommands:
+  - key: "M"
+    context: "localBranches"
+    description: "マージメニュー（未コミット変更のガード付き）"
+    prompts:
+      - type: "menu"
+        title: "マージ手法を選択 (未コミットガード付き)"
+        key: "MergeOption"
+        options:
+          - name: "通常のマージ"
+            description: "選択したブランチを現在のブランチにマージします"
+            value: "merge"
+          - name: "スカッシュマージ（未コミット）"
+            description: "変更をステージングに乗せた状態で止めます"
+            value: "squash"
+          - name: "スカッシュマージ（コミット）"
+            description: "スカッシュマージ後、自動メッセージでコミットします"
+            value: "squash_commit"
+    command: |
+      if ! git diff-index --quiet HEAD --; then
+        echo "【警告】作業中のファイルが存在するため、マージを中止しました。"
+        exit 1
+      fi
+
+      if [ "{{.Form.MergeOption}}" = "merge" ]; then
+        git merge {{.SelectedLocalBranch.Name}}
+      elif [ "{{.Form.MergeOption}}" = "squash" ]; then
+        git merge --squash {{.SelectedLocalBranch.Name}}
+      elif [ "{{.Form.MergeOption}}" = "squash_commit" ]; then
+        git merge --squash {{.SelectedLocalBranch.Name}} && git commit -m "Squash merge {{.SelectedLocalBranch.Name}} into $(git branch --show-current)"
+      fi
   - key: "c"
     context: "files"
-    description: 'commit files with format'
+    description: "commit files with format"
     prompts:
       - type: "menu"
         title: "What kind of commit type is it?"
         key: "Type"
         options:
           - name: "fix"
-            description: "🐛 バグや不具合の修正"
+            description: "\U0001F41B バグや不具合の修正"
             value: "fix :bug:"
           - name: "hotfix"
-            description: "🚑 緊急のバグや不具合の修正"
+            description: "\U0001F691 緊急のバグや不具合の修正"
             value: "hotfix :ambulance:"
           - name: "feat"
             description: "✨ 新機能の追加"
@@ -30,13 +57,13 @@ customCommands:
             description: "⬆️  既存機能に問題ないが処理の更新や改善"
             value: "update :arrow_up:"
           - name: "change"
-            description: "💫 仕様変更による更新や改善"
+            description: "\U0001F4AB 仕様変更による更新や改善"
             value: "change :dizzy:"
           - name: "docs"
-            description: "📝 ドキュメントの更新や改善"
+            description: "\U0001F4DD ドキュメントの更新や改善"
             value: "docs :memo:"
           - name: "style"
-            description: "🎨 コードフォーマットの修正、UIのみの変更"
+            description: "\U0001F3A8 コードフォーマットの修正、UIのみの変更"
             value: "style :art:"
           - name: "refactor"
             description: "♻️  パフォーマンスの改善なしのコードの改善"
@@ -45,25 +72,25 @@ customCommands:
             description: "✏️  ディレクトリ・ファイル名の変更"
             value: "rename :pencil2:"
           - name: "perf"
-            description: "🚀 パフォーマンス改善"
+            description: "\U0001F680 パフォーマンス改善"
             value: "perf :rocket:"
           - name: "move"
-            description: "🚚 ディレクトリ・ファイルの移動"
+            description: "\U0001F69A ディレクトリ・ファイルの移動"
             value: "move :truck:"
           - name: "delete"
-            description: "🔥 ファイルやディレクトリの削除"
+            description: "\U0001F525 ファイルやディレクトリの削除"
             value: "delete :fire:"
           - name: "upgrade"
-            description: "🌟 バージョン更新"
+            description: "\U0001F31F バージョン更新"
             value: "upgrade :star2:"
           - name: "test"
-            description: "💚 テスト・CIの追加や改善"
+            description: "\U0001F49A テスト・CIの追加や改善"
             value: "test :green_heart:"
           - name: "chore"
-            description: "🔧 設定ファイルの変更や改善"
+            description: "\U0001F527 設定ファイルの変更や改善"
             value: "chore :wrench:"
           - name: "wip"
-            description: "🚧 作業中"
+            description: "\U0001F6A7 作業中"
             value: "wip :construction:"
       - type: "input"
         title: "Enter the Message"
@@ -72,9 +99,10 @@ customCommands:
       - type: "confirm"
         title: "Commit"
         body: "Commit with the message '{{.Form.Type}} {{.Form.Message}}'. Is this okay?"
-    command: "bash -c 'type=\"{{.Form.Type}}\"; message=\"{{.Form.Message}}\"; commit_message=\"$type $message\"; git commit -m \"$commit_message\"'"
-    loadingText: "Committing..."
+    command: >
+      bash -c 'type="{{.Form.Type}}"; message="{{.Form.Message}}"; commit_message="$type $message"; git commit -m "$commit_message"'
 
+    loadingText: "Committing..."
 keybinding:
   files:
-    commitChanges: "<c-c>" # カスタムコマンドと入れ替える
+    commitChanges: "<c-c>"
