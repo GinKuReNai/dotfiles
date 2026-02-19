@@ -6,6 +6,24 @@ gui:
 os:
   editPreset: "nvim"
 customCommands:
+  - key: "<c-z>"
+    context: "global"
+    description: "直前のマージを安全に取り消す（未コミット変更の保護付き）"
+    prompts:
+      - type: "confirm"
+        title: "マージの取り消し（Safe Undo）"
+        body: "直前のマージ操作を無かったことにしますか？\n（作業中の未コミットファイルは安全に保護されます）"
+    command: |
+      git_dir="$(git rev-parse --git-dir)"
+      if [ -f "$git_dir/MERGE_HEAD" ]; then
+        # パターンA: コンフリクト等でマージが途中で止まっている場合
+        git merge --abort
+      else
+        # パターンB: マージが完了して履歴に残ってしまった場合
+        # --keep オプションを使うことで、未コミットの変更を保護しつつリセットします
+        git reset --keep ORIG_HEAD
+      fi
+
   - key: "M"
     context: "localBranches"
     description: "マージメニュー（未コミット変更のガード付き）"
