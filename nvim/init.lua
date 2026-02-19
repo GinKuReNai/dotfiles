@@ -20,6 +20,8 @@ require("config.lsp")
 
 require("config.diagnostic")
 
+require("config.lint")
+
 -- -- カラースキーマを設定
 vim.cmd("colorscheme tokyonight-night")
 

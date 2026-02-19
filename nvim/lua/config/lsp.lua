@@ -126,8 +126,8 @@ vim.api.nvim_create_autocmd("FileType", {
 						analysis = {
 							autoSearchPaths = true,
 							useLibraryCodeForTypes = true,
-							diagnosticMode = "workspace",
-							typeCheckingMode = "basic",
+							diagnosticMode = "openFilesOnly", -- 開いているファイルのみ診断
+							typeCheckingMode = "off", -- 型チェックをオフにする (必要に応じて "basic" や "strict" に変更)
 						},
 					},
 				},
