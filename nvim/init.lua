@@ -14,8 +14,6 @@ require("config.filetype")
 
 require("config.copilot")
 
-require("config.fern")
-
 require("config.lsp")
 
 require("config.diagnostic")
