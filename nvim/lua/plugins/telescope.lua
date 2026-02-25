@@ -11,6 +11,7 @@ return {
 
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Telescope: ファイル検索" },
+		{ "<leader>FF", "<cmd>Telescope resume<CR>", desc = "Telescope: 直前の検索を再開" },
 		{ "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Telescope: テキスト検索" },
 		{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Telescope: Gitの変更ファイルを一覧表示" },
 		{ "<leader>gl", "<cmd>Telescope git_commits<CR>", desc = "Telescope: Gitのログ一覧を表示" },
