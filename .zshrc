@@ -9,7 +9,6 @@ esac
 export LANG=ja_JP.UTF-8
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR=nvim
-export COPILOT_MODEL="claude-sonnet-4.5"
 
 # Claude Code
 export PATH="$HOME/.local/bin:$PATH"
