@@ -20,6 +20,9 @@ return {
 			"dockerfile",
 			"typescript",
 			"php",
+            "json",
+            "json5",
+            "jsonc",
 		},
 
 		-- 未インストールのファイルタイプを開いた際に自動でパーサーをインストール
