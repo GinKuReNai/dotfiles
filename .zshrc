@@ -75,6 +75,10 @@ if command -v pyenv &>/dev/null; then
     eval "$(pyenv init - zsh)"
 fi
 
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 # Starship (最後に実行)
 if command -v starship &>/dev/null; then
     export STARSHIP_CONFIG="$HOME/.config/starship.toml"
