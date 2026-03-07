@@ -1,0 +1,84 @@
+# [プロダクト名] System Architecture
+
+## Technology Stack
+
+### Frontend
+
+- **[技術]**: [選定理由]
+- **[技術]**: [選定理由]
+
+### Backend
+
+- **[技術]**: [選定理由]
+- **[技術]**: [選定理由]
+
+### Database
+
+- **[技術]**: [選定理由]
+- **[技術]**: [選定理由]
+
+### Infrastructure
+
+- **[技術]**: [選定理由]
+- **[技術]**: [選定理由]
+
+## System Diagram
+
+```mermaid
+graph TB
+    subgraph Client["Client Side"]
+        Web[Web App]
+        Mobile[Mobile App]
+    end
+
+    subgraph Frontend["Frontend Layer"]
+        React[React App]
+        Next[Next.js API Routes]
+    end
+
+    subgraph Backend["Backend Layer"]
+        API[API Server]
+        Auth[Auth Service]
+    end
+
+    subgraph Data["Data Layer"]
+        Primary[(Primary DB)]
+        Cache[(Redis Cache)]
+    end
+
+    subgraph External["External Services"]
+        ThirdParty[Third-party APIs]
+        Analytics[Analytics]
+    end
+
+    Web --> Frontend
+    Mobile --> API
+    Frontend --> API
+    API --> Primary
+    API --> Cache
+    API --> Auth
+    API --> ThirdParty
+    API --> Analytics
+```
+
+## Key Decisions (Architecture Decision Records)
+
+### ADR-001: [決定事項名]
+
+**ステータス**: 提案 / 受入 / 推移 / 廃止
+
+**コンテキストと問題文脈**: [どのような状況で決定が必要になったか]
+
+**決定事項**: [何を決定したか]
+
+**結果と影響**:
+- **肯定的影響**: [良い点]
+- **否定的影響**: [トレードオフ]
+
+**代替案**: [検討した他の選択肢と棄却理由]
+
+**関連決定**: [この決定に関連する他のADR]
+
+---
+
+*このドキュメントは [作成日時] に作成されました*

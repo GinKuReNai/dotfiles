@@ -1,0 +1,104 @@
+# [プロダクト名] Database Schema
+
+## ER Diagram
+
+```mermaid
+erDiagram
+    USERS {
+        uuid id PK
+        string name
+        string email
+        timestamp created_at
+        timestamp updated_at
+    }
+    PROJECTS {
+        uuid id PK
+        uuid user_id FK
+        string name
+        string description
+        timestamp created_at
+        timestamp updated_at
+    }
+    TASKS {
+        uuid id PK
+        uuid project_id FK
+        string title
+        text description
+        enum status
+        int priority
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    USERS ||--o{ PROJECTS : "has many"
+    PROJECTS ||--o{ TASKS : "has many"
+```
+
+## Schema Detail
+
+### users
+
+| フィールド名 | 型 | 制約 | 説明 |
+|-----------|------|------|------|
+| id | uuid | PK, NOT NULL | ユーザーID |
+| name | string | NOT NULL | ユーザー名 |
+| email | string | UNIQUE, NOT NULL | メールアドレス |
+| created_at | timestamp | NOT NULL, DEFAULT now() | 作成日時 |
+| updated_at | timestamp | NOT NULL, DEFAULT now() | 更新日時 |
+
+**インデックス**:
+- `idx_users_email` on `email` (UNIQUE)
+
+### projects
+
+| フィールド名 | 型 | 制約 | 説明 |
+|-----------|------|------|------|
+| id | uuid | PK, NOT NULL | プロダクトID |
+| user_id | uuid | FK, NOT NULL | 作成者ID |
+| name | string | NOT NULL | プロダクト名 |
+| description | text | NULLABLE | プロダクト説明 |
+| created_at | timestamp | NOT NULL, DEFAULT now() | 作成日時 |
+| updated_at | timestamp | NOT NULL, DEFAULT now() | 更新日時 |
+
+**外部キー制約**:
+- `fk_projects_user_id` references `users(id)` ON DELETE CASCADE
+
+**インデックス**:
+- `idx_projects_user_id` on `user_id`
+
+### tasks
+
+| フィールド名 | 型 | 制約 | 説明 |
+|-----------|------|------|------|
+| id | uuid | PK, NOT NULL | タスクID |
+| project_id | uuid | FK, NOT NULL | 所属プロダクトID |
+| title | string | NOT NULL | タスク名 |
+| description | text | NULLABLE | タスク説明 |
+| status | enum | NOT NULL | ステータス (pending, in_progress, completed) |
+| priority | int | NOT NULL | 優先度 (1: 低, 2: 中, 3: 高) |
+| created_at | timestamp | NOT NULL, DEFAULT now() | 作成日時 |
+| updated_at | timestamp | NOT NULL, DEFAULT now() | 更新日時 |
+
+**外部キー制約**:
+- `fk_tasks_project_id` references `projects(id)` ON DELETE CASCADE
+
+**インデックス**:
+- `idx_tasks_project_id` on `project_id`
+- `idx_tasks_status` on `status`
+- `idx_tasks_priority` on `priority`
+
+## Data Migration Strategy
+
+- [初期マイグレーション計画]
+- [スキーマ更新の手順]
+- [バックアップ計画]
+
+## Performance Considerations
+
+- [クエリの最適化計画]
+- [キャッシュ戦略]
+- [パーティショニングの必要性]
+
+---
+
+*このドキュメントは [作成日時] に作成されました*

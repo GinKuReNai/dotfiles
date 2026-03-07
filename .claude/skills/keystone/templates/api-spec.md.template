@@ -1,0 +1,144 @@
+# [プロダクト名] API Specification
+
+## Endpoint List
+
+| Method | Path | Summary | Authentication |
+|--------|------|---------|---------------|
+| POST | /api/v1/auth/register | ユーザー登録 | なし |
+| POST | /api/v1/auth/login | ログイン | なし |
+| GET | /api/v1/projects | プロダクト一覧取得 | 要 |
+| POST | /api/v1/projects | プロダクト作成 | 要 |
+| GET | /api/v1/projects/:id | プロダクト詳細取得 | 要 |
+| PUT | /api/v1/projects/:id | プロダクト更新 | 要 |
+| DELETE | /api/v1/projects/:id | プロダクト削除 | 要 |
+| GET | /api/v1/projects/:id/tasks | タスク一覧取得 | 要 |
+| POST | /api/v1/projects/:id/tasks | タスク作成 | 要 |
+
+## Request/Response Details
+
+### POST /api/v1/auth/register
+
+**リクエスト**:
+```json
+{
+  "name": "string",
+  "email": "string",
+  "password": "string"
+}
+```
+
+**レスポンス**:
+```json
+{
+  "user": {
+    "id": "uuid",
+    "name": "string",
+    "email": "string"
+  },
+  "token": "jwt_token_string"
+}
+```
+
+### POST /api/v1/auth/login
+
+**リクエスト**:
+```json
+{
+  "email": "string",
+  "password": "string"
+}
+```
+
+**レスポンス**:
+```json
+{
+  "user": {
+    "id": "uuid",
+    "name": "string",
+    "email": "string"
+  },
+  "token": "jwt_token_string"
+}
+```
+
+### GET /api/v1/projects
+
+**レスポンス**:
+```json
+{
+  "projects": [
+    {
+      "id": "uuid",
+      "name": "string",
+      "description": "string",
+      "created_at": "timestamp",
+      "updated_at": "timestamp"
+    }
+  ],
+  "total": 10,
+  "page": 1,
+  "per_page": 20
+}
+```
+
+### POST /api/v1/projects
+
+**リクエスト**:
+```json
+{
+  "name": "string",
+  "description": "string"
+}
+```
+
+**レスポンス**:
+```json
+{
+  "id": "uuid",
+  "name": "string",
+  "description": "string",
+  "created_at": "timestamp",
+  "updated_at": "timestamp"
+}
+```
+
+## Error Handling
+
+| ステータスコード | 説明 | 対処条件 |
+|------------|------|----------|
+| 400 | Bad Request | リクエストが無効 |
+| 401 | Unauthorized | 認証が必要、またはトークンが無効 |
+| 403 | Forbidden | アクセス権限がない |
+| 404 | Not Found | リソースが存在しない |
+| 409 | Conflict | リソースが既に存在する |
+| 422 | Unprocessable Entity | ビジネネスルール違反 |
+| 500 | Internal Server Error | サーバー内部エラー |
+
+**エラーレスポンス形式**:
+```json
+{
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "エラーメセージ",
+    "details": {
+      "field": "具体的なエラー詳細"
+    }
+  }
+}
+```
+
+## Rate Limiting
+
+- **一般リクエスト**: 100 リクエスト/分
+- **認証済みリクエスト**: 1000 リクエスト/分
+- **レスポンスヘッダー**: `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`
+
+## Authentication
+
+- **方式**: JWT Bearer Token
+- **ヘッダー**: `Authorization: Bearer <token>`
+- **トークン有効期限**: アクセストークンは1時間、リフレッシュトークンは30日
+
+---
+
+*このドキュメントは [作成日時] に作成されました*

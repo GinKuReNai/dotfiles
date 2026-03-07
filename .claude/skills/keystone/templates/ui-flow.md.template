@@ -1,0 +1,146 @@
+# [プロダクト名] UI Flow
+
+## Screen Transition Diagram
+
+```mermaid
+graph TD
+    Landing[ランディングページ]
+    Login[ログイン画面]
+    Register[登録画面]
+
+    Dashboard[ダッシュボード]
+    Projects[プロダクト一覧]
+    ProjectDetail[プロダクト詳細]
+    TaskBoard[タスクボード]
+    CreateTask[タスク作成]
+
+    Settings[設定画面]
+
+    Landing -->|新規登録| Register
+    Landing -->|ログイン| Login
+    Register -->|登録完了| Login
+    Login -->|ログイン成功| Dashboard
+
+    Dashboard --> Projects
+    Dashboard --> Settings
+
+    Projects --> ProjectDetail
+    Projects -->|新規プロダクト| ProjectDetail
+
+    ProjectDetail --> TaskBoard
+    ProjectDetail -->|戻る| Projects
+
+    TaskBoard -->|タスク追加| CreateTask
+    CreateTask -->|作成完了| TaskBoard
+    TaskBoard --> ProjectDetail
+
+    Settings --> Dashboard
+```
+
+## Page Responsibility
+
+### Landing Page
+
+**表示すべきデータ**:
+- プロダクトの価値提示
+- 主要な機能の概要
+- CTA（Call to Action）
+
+**可能なアクション**:
+- 新規アカウントへの移動
+- ログイン画面への移動
+
+### Login Page
+
+**表示すべきデータ**:
+- ログインフォーム
+- メールアドレス入力欄
+- パスワード入力欄
+
+**可能なアクション**:
+- メールアドレスとパスワードを入力してログイン
+- 新規登録画面への移動
+- パスワード再設定
+
+### Dashboard
+
+**表示すべきデータ**:
+- 最近のプロダクト一覧
+- 進捗状況のサマリー
+- クイックアクセスリンク
+
+**可能なアクション**:
+- プロダクト一覧への移動
+- 設定画面への移動
+- 新規プロダクトの作成
+
+### Projects Page
+
+**表示すべきデータ**:
+- 全プロダクト一覧
+- プロダクト名と説明
+- 作成日時
+- 更新日時
+- ペ送り（Pagination）
+
+**可能なアクション**:
+- 特定のプロダクト詳細へ移動
+- 新規プロダクトの作成
+- 検索・フィルタリング
+
+### Project Detail Page
+
+**表示すべきデータ**:
+- プロダクト名と説明
+- 所属するタスク一覧
+- プロダクトのステータス
+- メンバー一覧
+
+**可能なアクション**:
+- プロダクト情報の編集
+- プロダクトの削除
+- タスクボードへの移動
+- メンバーの招待
+
+### Task Board Page
+
+**表示すべきデータ**:
+- 全タスク一覧
+- タスクのステータスごとのカラム表示
+- タスクの優先度表示
+
+**可能なアクション**:
+- 新規タスクの作成
+- タスクのドラッグ＆ドロップで順序変更
+- タスク情報の編集
+- タスクの削除
+
+### Create Task Modal
+
+**表示すべきデータ**:
+- タスク名入力欄
+- 説明入力欄
+- 優先度セレクト
+- 担当担当者セレクト
+
+**可能なアクション**:
+- 入力内容のバリデーション
+- タスクの作成
+- キャンセル
+
+### Settings Page
+
+**表示すべきデータ**:
+- ユーザー情報
+- メール通知設定
+- パスワード変更
+
+**可能なアクション**:
+- ユーザー情報の更新
+- メール通知設定の変更
+- パスワード変更
+- ログアウト
+
+---
+
+*このドキュメントは [作成日時] に作成されました*
