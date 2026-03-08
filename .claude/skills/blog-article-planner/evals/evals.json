@@ -1,0 +1,23 @@
+{
+  "skill_name": "blog-article-planner",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "React Server Actionsについて技術ブログを書きたい。構成案とGitHub Issuesを作ってほしい。",
+      "expected_output": "Iterative questioning phase asking about motivation, trial-and-error, RFCs, visualization needs, code examples, followed by story-based outline and shell script with preparation/articles labeled issues.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Prisma ORMのN+1問題を解決した経験を記事にしたい。アウトラインとIssuesを生成して。",
+      "expected_output": "Questions about specific obstacles, documentation referenced, code examples, then outline showing problem-solution story with Mermaid diagrams for query patterns, shell script with labeled issues.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "新しい技術を紹介するブログ記事を企画したい。",
+      "expected_output": "Deep-dive questions to extract specific story (not generic intro), refuses to create outline until concrete trial-and-error details are provided, then creates story-based outline.",
+      "files": []
+    }
+  ]
+}
