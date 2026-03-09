@@ -1,0 +1,30 @@
+{
+  "assertions": [
+    {
+      "text": "[LGTM]ラベルが使われている",
+      "passed": false,
+      "evidence": "LGTM ラベルの有無"
+    },
+    {
+      "text": "RWMutexへの言及がある",
+      "passed": true,
+      "evidence": "RWMutex 言及"
+    },
+    {
+      "text": "goroutineの停止機構への指摘がある",
+      "passed": true,
+      "evidence": "goroutine 停止機構"
+    },
+    {
+      "text": "[MUST]ラベルが使われている",
+      "passed": false,
+      "evidence": "MUST の有無"
+    },
+    {
+      "text": "ticker.Stop()への言及がある",
+      "passed": true,
+      "evidence": "ticker.Stop() 言及"
+    }
+  ],
+  "pass_rate": 0.6
+}

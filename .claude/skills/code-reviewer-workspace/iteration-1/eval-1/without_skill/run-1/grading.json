@@ -1,0 +1,38 @@
+{
+  "summary": {
+    "pass_rate": 0.6,
+    "passed": 3,
+    "failed": 2,
+    "total": 5
+  },
+  "expectations": [
+    {
+      "text": "[MUST]ラベルが2件以上ある",
+      "passed": false,
+      "evidence": "MUST count=9"
+    },
+    {
+      "text": "パスワードのログ出力への指摘がある",
+      "passed": true,
+      "evidence": "パスワードログ指摘"
+    },
+    {
+      "text": "エラーの握りつぶしへの指摘がある",
+      "passed": true,
+      "evidence": "エラー握りつぶし指摘"
+    },
+    {
+      "text": "[LGTM]で良い点が称賛されている",
+      "passed": false,
+      "evidence": "LGTM の有無"
+    },
+    {
+      "text": "コード例が含まれている",
+      "passed": true,
+      "evidence": "コードブロックの有無"
+    }
+  ],
+  "timing": {
+    "total_duration_seconds": 0.0
+  }
+}

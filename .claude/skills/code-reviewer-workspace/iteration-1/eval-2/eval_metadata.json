@@ -1,0 +1,6 @@
+{
+  "eval_id": 2,
+  "eval_name": "go-cache-implementation",
+  "prompt": "GoのCacheクラス：全体的に良い実装だが sync.RWMutex や停止機構の改善余地がある。",
+  "assertions": []
+}

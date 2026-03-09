@@ -1,0 +1,6 @@
+{
+  "eval_id": 1,
+  "eval_name": "typescript-auth-security-issues",
+  "prompt": "TypeScriptの認証コード：パスワードのログ出力とエラーの握りつぶしを含む。",
+  "assertions": []
+}

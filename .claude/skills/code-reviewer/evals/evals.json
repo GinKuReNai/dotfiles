@@ -1,0 +1,20 @@
+{
+  "skill_name": "code-reviewer",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "以下のPythonコードをレビューしてください。\n\n```python\ndef get_user(user_id):\n    conn = db.connect()\n    result = conn.execute(f\"SELECT * FROM users WHERE id = {user_id}\")\n    user = result.fetchone()\n    conn.close()\n    return user\n\ndef process_users(user_ids):\n    users = []\n    for uid in user_ids:\n        u = get_user(uid)\n        users.append(u)\n    return users\n```",
+      "expected_output": "[MUST] でSQLインジェクションのリスクを指摘し、[SHOULD] でN+1問題を指摘し、建設的なトーンで改善案を提示すること"
+    },
+    {
+      "id": 1,
+      "prompt": "このTypeScriptコードのレビューをお願いします。\n\n```typescript\n// ユーザー認証処理\nasync function authenticateUser(email: string, password: string) {\n  try {\n    const user = await db.users.findOne({ email });\n    if (!user) return null;\n    \n    const isValid = await bcrypt.compare(password, user.passwordHash);\n    if (!isValid) return null;\n    \n    console.log(`User logged in: ${email}, password: ${password}`);\n    \n    return generateJWT(user.id);\n  } catch (e) {\n    // ignore error\n  }\n}\n```",
+      "expected_output": "[MUST] でパスワードのログ出力とエラーの握りつぶしを指摘し、重要度ラベルを適切に使用したレビューを行うこと"
+    },
+    {
+      "id": 2,
+      "prompt": "以下のGoコードをレビューしてください。\n\n```go\npackage cache\n\nimport (\n    \"sync\"\n    \"time\"\n)\n\ntype Cache struct {\n    mu    sync.Mutex\n    items map[string]Item\n}\n\ntype Item struct {\n    Value     interface{}\n    ExpiresAt time.Time\n}\n\nfunc NewCache() *Cache {\n    c := &Cache{\n        items: make(map[string]Item),\n    }\n    go c.cleanupLoop()\n    return c\n}\n\nfunc (c *Cache) Set(key string, value interface{}, ttl time.Duration) {\n    c.mu.Lock()\n    defer c.mu.Unlock()\n    c.items[key] = Item{Value: value, ExpiresAt: time.Now().Add(ttl)}\n}\n\nfunc (c *Cache) Get(key string) (interface{}, bool) {\n    c.mu.Lock()\n    defer c.mu.Unlock()\n    item, ok := c.items[key]\n    if !ok || time.Now().After(item.ExpiresAt) {\n        return nil, false\n    }\n    return item.Value, true\n}\n\nfunc (c *Cache) cleanupLoop() {\n    ticker := time.NewTicker(5 * time.Minute)\n    for range ticker.C {\n        c.mu.Lock()\n        for k, v := range c.items {\n            if time.Now().After(v.ExpiresAt) {\n                delete(c.items, k)\n            }\n        }\n        c.mu.Unlock()\n    }\n}\n```",
+      "expected_output": "全体的に良い実装として [LGTM] を使いつつ、sync.RWMutex の活用や cleanupLoop の停止機構など改善点を [SHOULD]/[IMO] で指摘すること"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[
+  {"query": "このPRをレビューしてください", "should_trigger": true},
+  {"query": "コードの差分を確認してほしい", "should_trigger": true},
+  {"query": "以下のコードを見て問題点を指摘して", "should_trigger": true},
+  {"query": "このTypeScriptのコードに問題がないか確認して", "should_trigger": true},
+  {"query": "PRの変更内容をチェックしてください", "should_trigger": true},
+  {"query": "コードレビューをお願いします。\n```python\ndef add(a, b): return a+b\n```", "should_trigger": true},
+  {"query": "このGo関数の設計は適切ですか？\n```go\nfunc process(data []byte) error { return nil }\n```", "should_trigger": true},
+  {"query": "Pythonの文法を教えて", "should_trigger": false},
+  {"query": "このエラーを直してほしい", "should_trigger": false},
+  {"query": "新しいブログ記事を書きたい", "should_trigger": false},
+  {"query": "テストコードを書いて", "should_trigger": false},
+  {"query": "READMEを更新して", "should_trigger": false},
+  {"query": "データベースの設計を手伝って", "should_trigger": false}
+]

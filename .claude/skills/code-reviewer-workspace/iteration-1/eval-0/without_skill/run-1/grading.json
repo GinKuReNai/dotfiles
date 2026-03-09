@@ -1,0 +1,43 @@
+{
+  "summary": {
+    "pass_rate": 0.6666666666666666,
+    "passed": 4,
+    "failed": 2,
+    "total": 6
+  },
+  "expectations": [
+    {
+      "text": "[MUST]ラベルが使われている",
+      "passed": false,
+      "evidence": "MUST ラベルの有無"
+    },
+    {
+      "text": "SQLインジェクションへの言及がある",
+      "passed": true,
+      "evidence": "SQL injection 言及"
+    },
+    {
+      "text": "N+1問題またはバッチ処理への言及がある",
+      "passed": true,
+      "evidence": "N+1 言及"
+    },
+    {
+      "text": "コード例（コードブロック）が含まれている",
+      "passed": true,
+      "evidence": "コードブロックの有無"
+    },
+    {
+      "text": "総評セクションがある",
+      "passed": true,
+      "evidence": "総評セクション"
+    },
+    {
+      "text": "[LGTM]ラベルが使われている",
+      "passed": false,
+      "evidence": "LGTM ラベルの有無"
+    }
+  ],
+  "timing": {
+    "total_duration_seconds": 0.0
+  }
+}
