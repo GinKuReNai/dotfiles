@@ -121,6 +121,16 @@ customCommands:
       bash -c 'type="{{.Form.Type}}"; message="{{.Form.Message}}"; commit_message="$type $message"; git commit -m "$commit_message"'
 
     loadingText: "Committing..."
+  - key: "s"
+    context: "files"
+    description: "日付付きスタッシュ（メッセージ入力）"
+    prompts:
+      - type: "input"
+        title: "スタッシュメッセージ（{本日の日付}- が自動で先頭に付きます）"
+        key: "Message"
+        initialValue: ""
+    command: "bash -c 'git stash push -m \"$(date +%Y-%m-%d)-{{.Form.Message}}\"'"
+
 keybinding:
   files:
     commitChanges: "<c-c>"
