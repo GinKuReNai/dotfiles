@@ -14,3 +14,6 @@ coc/extensions
 
 # karabinar
 karabiner/automatic_backups
+
+# Python
+__pycache__
