@@ -50,13 +50,32 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set(mode, lhs, rhs, { buffer = args.buf, desc = "LSP: " .. desc })
 		end
 
-		-- Navigation
+		-- gd: カーソル下のシンボルの定義先にジャンプ
+		-- 例: 関数呼び出しの場所にいるときに gd で関数の定義元に移動
 		map("n", "gd", vim.lsp.buf.definition, "Go to Definition")
+
+		-- gy: カーソル下のシンボルの型定義先にジャンプ
+		-- 例: 変数の型定義やクラスのベース型などに移動
+		map("n", "gy", vim.lsp.buf.type_definition, "Go to Type Definition")
+
+		-- gi: カーソル下のシンボルの実装先にジャンプ
+		-- 例: インターフェースの実装元や抽象メソッドの実装先に移動
+		map("n", "gi", vim.lsp.buf.implementation, "Go to Implementation")
+
+		-- gr: カーソル下のシンボルの参照先（使用している場所）一覧を表示
+		-- 例: 関数がどこで呼ばれているかを確認
 		map("n", "gr", vim.lsp.buf.references, "Go to References")
+
+		-- K: カーソル下のシンボルのドキュメント（ホバー情報）を表示
+		-- 例: 関数の説明やパラメータ情報をプレビュー表示
 		map("n", "K", vim.lsp.buf.hover, "Hover Documentation")
 
-		-- Actions
+		-- <leader>rn: シンボルのリネーム
+		-- 例: 関数名を変更すると、その関数が使用されているすべての場所が自動的に更新される
 		map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
+
+		-- <leader>ca: カーソル位置で利用可能なコードアクションを表示
+		-- 例: 不要なインポート削除、簡略化提案、重大な警告の修正など
 		map("n", "<leader>ca", vim.lsp.buf.code_action, "Code Action")
 
 		-- Native Completion (Neovim 0.11+)
