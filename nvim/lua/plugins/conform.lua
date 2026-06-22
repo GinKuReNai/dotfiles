@@ -29,6 +29,8 @@ return {
 			lua = { "stylua" },
 			-- PHP
 			php = { "php_cs_fixer" },
+			-- Markdown
+			markdown = { "prettier" },
 		},
 		format_on_save = {
 			timeout_ms = 500,
