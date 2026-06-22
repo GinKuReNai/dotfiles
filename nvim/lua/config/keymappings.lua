@@ -37,13 +37,21 @@ vim.api.nvim_set_keymap("i", "<C-k>", "<Up>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-h>", "<Left>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true, silent = true })
 
--- 自動フォーマット
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>fm",
-	'<cmd>call CocAction("format")<CR>',
-	{ noremap = true, silent = true, desc = "自動フォーマット" }
-)
+-- 自動フォーマット（conform.nvim を優先し、未対応の場合は coc にフォールバック）
+vim.keymap.set("n", "<leader>fm", function()
+	local ok, conform = pcall(require, "conform")
+	if ok then
+		local formatters = conform.list_formatters(0)
+		if #formatters > 0 then
+			conform.format({ async = true, lsp_fallback = true })
+			return
+		end
+	end
+	local coc_ok, _ = pcall(vim.fn.CocAction, "format")
+	if not coc_ok then
+		vim.notify("No formatter available for this buffer", vim.log.levels.WARN)
+	end
+end, { noremap = true, silent = true, desc = "自動フォーマット" })
 
 -- ###############################################################
 
