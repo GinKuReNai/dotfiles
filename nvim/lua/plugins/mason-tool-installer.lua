@@ -6,6 +6,10 @@ return {
 			"stylua", -- Lua Formatter
 			"ruff", -- Python Formatter and Linter (LSPとしても使用)
 			"prettier", -- JavaScript/TypeScript Formatter
+			"typescript-language-server", -- TypeScript/JavaScript Language Server
+			"tailwindcss-language-server", -- Tailwind CSS Language Server
+			"eslint-lsp", -- ESLint Language Server
+			"emmet-language-server", -- Emmet Language Server
 			"goimports", -- Go Import Organizer
 			"gofumpt", -- Go Formatter
 			"php-cs-fixer", -- PHP Formatter

@@ -25,6 +25,13 @@ return {
 			-- JavaScript/TypeScript
 			javascript = { "prettier" },
 			typescript = { "prettier" },
+			javascriptreact = { "prettier" },
+			typescriptreact = { "prettier" },
+			css = { "prettier" },
+			scss = { "prettier" },
+			html = { "prettier" },
+			json = { "prettier" },
+			jsonc = { "prettier" },
 			-- Lua
 			lua = { "stylua" },
 			-- PHP
