@@ -1,5 +1,6 @@
 return {
 	"folke/which-key.nvim",
+	event = "VeryLazy",
 	config = function()
 		-- キーマッピングの表示遅延を設定
 		vim.o.timeout = true

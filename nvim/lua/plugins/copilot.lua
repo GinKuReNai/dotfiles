@@ -1,3 +1,5 @@
 return {
-    "github/copilot.vim",
+	"github/copilot.vim",
+	event = "InsertEnter",
+	cmd = "Copilot",
 }
