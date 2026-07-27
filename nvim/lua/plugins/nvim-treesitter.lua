@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "master",
 	build = ":TSUpdate",
 	event = { "BufReadPost", "BufNewFile" },
 	main = "nvim-treesitter.configs", -- `require("nvim-treesitter.configs").setup()` を自動実行させるための設定
